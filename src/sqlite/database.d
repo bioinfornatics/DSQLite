@@ -110,6 +110,13 @@ class Database{
             updateTablesList;
         }
 
+        void dropTable( string tableName ){
+            string query = "DROP TABLE " ~ tableName;
+            command( query );
+            if(  tableName in _tables)
+                _tables.remove( tableName );
+        }
+
         @property sqlite3* connection(){
             return _connection;
         }
@@ -159,5 +166,6 @@ class Database{
         Table opIndex( string name){
             return _tables[name];
         }
+
 }
 
