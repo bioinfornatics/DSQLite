@@ -115,14 +115,15 @@ class Database{
         }
 
         @property Row[] tables(){
-            return command( "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name" );
+            return command( "SELECT name FROM sqlite_master WHERE type='table'" );
         }
 
         @property void updateTablesList(){
             Row[] result = tables;
-            foreach( table; tables ){
-                Column name     = table["name"];
-                string tableName= name.to!(string)();
+            foreach( table; result ){
+                Column column   = table["name"];
+                string tableName= to!(string)( column.getValue );
+                debug writefln( "list table, %s: %s", column.name, tableName );
                 if(  tableName !in _tables)
                     _tables[ tableName ] = new Table( this, tableName) ;
             }

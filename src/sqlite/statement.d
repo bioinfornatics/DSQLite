@@ -311,7 +311,7 @@ struct Row{
             size_t  index       = 0;
             Column  result      = null;
             while( isSearching ){
-                if( _columns.length >= index )
+                if( _columns.length <= index )
                     isSearching = false;
                 else if( _columns[index].name == name ){
                     isSearching = false;
@@ -357,10 +357,6 @@ struct Column{
 
         string toString(){
             return  "%s: %s".format( name, _value );
-        }
-
-        @property T to(T)(){
-                return _value.get!(T);
         }
 }
 
