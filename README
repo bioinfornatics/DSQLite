@@ -22,3 +22,9 @@ If you build as shared lib remember to run ldconfig:
     If you have set prefix as /usr
     $ su -c 'ldconfig'
 
+EXAMPLES
+--------
+for build and test example you need link to your sqlite library. I assume DSQLite lib is in prefix /usr/local/ and sqlite lib in /usr/lib64:
+$ ldc2 -O -g -w -I=/usr/local/include/d/DSQLite/ -L=/usr/local/lib64/libDSQLite-ldc.so -L=/usr/lib64/libsqlite3.so test_sql.d
+$ ./test_sql
+
