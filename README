@@ -1,0 +1,24 @@
+BUILD
+------
+run build.sh script as
+$ ./build.sh
+
+use -h paramter for more info
+$ ./build.sh -h
+
+INSTALL
+-------
+It is quite easy after building just copy:
+$ su -c 'cp -r install/* /'
+
+
+If you build as shared lib remember to run ldconfig:
+    If you have used default prefix
+    $ su -c 'ldconfig /usr/local/lib'
+
+    If you have set lib dir as lib64
+    $ su -c 'ldconfig /usr/local/lib64'
+
+    If you have set prefix as /usr
+    $ su -c 'ldconfig'
+
