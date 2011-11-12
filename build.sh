@@ -99,6 +99,7 @@ if [[ $VERBOSE -ge 1 ]]; then
 fi
 case ${DC} in
     ldc | ldc2)
+        COMPILER="ldc"
         DFLAGS="${DFLAGS} --output-o"
         if [[ $SHARED_LIB -eq 1 ]]; then
             DFLAGS="${DFLAGS} --output-bc -relocation-model=pic"
