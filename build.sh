@@ -40,14 +40,14 @@ EOF
 }
 PROJECTNAME="DSQLite"
 DC=ldc2
-COMPILER="ldc"
+COMPILER="ldc2"
 VERBOSE=0
 SHARED_LIB=1
 PREFIX="/usr/local"
 LIBDIR="lib"
 DESTDIR="../install"
 LIBDIR_PATH=""
-DFLAGS="-w -g -op -c -od../build -Dd${DOCDIR_PATH}"
+DFLAGS="-w -g -op -c -od../build"
 
 while getopts “hvqscf:l:p:” OPTION
 do
@@ -85,10 +85,9 @@ do
 done
 
 LIBDIR_PATH="${DESTDIR}/${PREFIX}/${LIBDIR}"
-DESTDIR="${DESTDIR}/${PREFIX}"
 DOCDIR_PATH="${DESTDIR}/${PREFIX}/share/doc/${PROJECTNAME}"
 INCLUDEDIR="${DESTDIR}/${PREFIX}/include/d/${PROJECTNAME}"
-DFLAGS="${DFLAGS} -Hd${INCLUDEDIR}"
+DFLAGS="${DFLAGS} -Dd${DOCDIR_PATH} -Hd${INCLUDEDIR}"
 
 if [[ $VERBOSE -ge 1 ]]; then
     echo -e "\033[31mEntering is source directory\033[0;0m"
@@ -145,7 +144,7 @@ if [[ $VERBOSE -ge 1 ]]; then
     echo -e "\033[31mLinking ...\033[0;0m"
 fi
 if [ ! -e "${LIBDIR_PATH}" ]; then
-    mkdir ${LIBDIR_PATH}
+    mkdir -p ${LIBDIR_PATH}
 fi
 if [[ $? -ge 1 ]]; then
     fail "mkdir ${LIBDIR_PATH}"
