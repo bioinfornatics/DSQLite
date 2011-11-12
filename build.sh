@@ -47,9 +47,7 @@ PREFIX="/usr/local"
 LIBDIR="lib"
 DESTDIR="../install"
 LIBDIR_PATH=""
-DOCDIR_PATH="${DESTDIR}/${PREFIX}/share/doc/${PROJECTNAME}"
-INCLUDEDIR="${DESTDIR}/${PREFIX}/include/d/${PROJECTNAME}"
-DFLAGS="-w -g -op -c -od../build -Dd${DOCDIR_PATH} -Hd${INCLUDEDIR}"
+DFLAGS="-w -g -op -c -od../build -Dd${DOCDIR_PATH}"
 
 while getopts “hvqscf:l:p:” OPTION
 do
@@ -87,6 +85,10 @@ do
 done
 
 LIBDIR_PATH="${DESTDIR}/${PREFIX}/${LIBDIR}"
+DESTDIR="${DESTDIR}/${PREFIX}"
+DOCDIR_PATH="${DESTDIR}/${PREFIX}/share/doc/${PROJECTNAME}"
+INCLUDEDIR="${DESTDIR}/${PREFIX}/include/d/${PROJECTNAME}"
+DFLAGS="${DFLAGS} -Hd${INCLUDEDIR}"
 
 if [[ $VERBOSE -ge 1 ]]; then
     echo -e "\033[31mEntering is source directory\033[0;0m"
