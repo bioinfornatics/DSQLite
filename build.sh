@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This file is part of ${PROJECTNAME}.
+# This file is part of DSQLite.
 #
 #    Foobar is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -85,8 +85,8 @@ do
 done
 
 LIBDIR_PATH="${DESTDIR}/${PREFIX}/${LIBDIR}"
-DOCDIR_PATH="${DESTDIR}/${PREFIX}/share/doc/${PROJECTNAME}"
-INCLUDEDIR="${DESTDIR}/${PREFIX}/include/d/${PROJECTNAME}"
+DOCDIR_PATH="${DESTDIR}/${PREFIX}/share/doc/DSQLite"
+INCLUDEDIR="${DESTDIR}/${PREFIX}/include/d/DSQLite"
 DFLAGS="${DFLAGS} -Dd${DOCDIR_PATH} -Hd${INCLUDEDIR}"
 
 if [[ $VERBOSE -ge 1 ]]; then
@@ -154,27 +154,27 @@ case ${DC} in
     ldc | ldc2)
         if [[ $SHARED_LIB -eq 1 ]]; then
             if [[ $VERBOSE -ge 2 ]]; then
-                echo -e "\033[33mllvm-ld -link-as-library -o lib${PROJECTNAME}.bc -lm -ldl -lrt -soname=${PROJECTNAME} *.bc\033[0;0m"
+                echo -e "\033[33mllvm-ld -link-as-library -o libDSQLite.bc -lm -ldl -lrt -soname=DSQLite *.bc\033[0;0m"
             fi
-            llvm-ld -link-as-library -o lib${PROJECTNAME}.bc -lm -ldl -lrt -soname=${PROJECTNAME}  $(find . -name "*.bc")
+            llvm-ld -link-as-library -o libDSQLite.bc -lm -ldl -lrt -soname=DSQLite  $(find . -name "*.bc")
             if [[ $? -ge 1 ]]; then
                 fail "llvm-ld"
             fi
             if [[ $VERBOSE -ge 2 ]]; then
-                echo -e "\033[33mllc -relocation-model=pic lib${PROJECTNAME}.bc\033[0;0m"
+                echo -e "\033[33mllc -relocation-model=pic libDSQLite.bc\033[0;0m"
             fi
-            llc -relocation-model=pic lib${PROJECTNAME}.bc
+            llc -relocation-model=pic libDSQLite.bc
             if [[ $? -ge 1 ]]; then
                 fail "llc"
             fi
             if [[ $VERBOSE -ge 2 ]]; then
-                echo -e "\033[33mgcc -shared lib${PROJECTNAME}.s -o ${LIBDIR_PATH}/lib${PROJECTNAME}-${COMPILER}.so\033[0;0m"
+                echo -e "\033[33mgcc -shared libDSQLite.s -o ${LIBDIR_PATH}/libDSQLite-${COMPILER}.so\033[0;0m"
             fi
-            gcc -shared -Wl,-soname,lib${PROJECTNAME}-${COMPILER}.so lib${PROJECTNAME}.s -o ${LIBDIR_PATH}/lib${PROJECTNAME}-${COMPILER}.so
+            gcc -shared -Wl,-soname,libDSQLite-${COMPILER}.so libDSQLite.s -o ${LIBDIR_PATH}/libDSQLite-${COMPILER}.so
             if [[ $? -ge 1 ]]; then
                 fail "gcc"
             fi
-            if [ -e lib${PROJECTNAME}.bc ]; then
+            if [ -e libDSQLite.bc ]; then
                 rm *.bc
             fi
             if [[ $? -ge 1 ]]; then
@@ -182,16 +182,16 @@ case ${DC} in
             fi
         else
             if [[ $VERBOSE -ge 2 ]]; then
-                echo -e "ar rcs ${LIBDIR_PATH}/lib${PROJECTNAME}-${COMPILER}.a *.o"
+                echo -e "ar rcs ${LIBDIR_PATH}/libDSQLite-${COMPILER}.a *.o"
             fi
-            ar rcs ${LIBDIR_PATH}/lib${PROJECTNAME}-${COMPILER}.a  $(find . -name "*.o")
+            ar rcs ${LIBDIR_PATH}/libDSQLite-${COMPILER}.a  $(find . -name "*.o")
             if [[ $? -ge 1 ]]; then
                 fail "ar"
             fi
             if [[ $VERBOSE -ge 2 ]]; then
-                echo -e "{LIBDIR_PATH}/lib${PROJECTNAME}-${COMPILER}.a"
+                echo -e "{LIBDIR_PATH}/libDSQLite-${COMPILER}.a"
             fi
-            ranlib ${LIBDIR_PATH}/lib${PROJECTNAME}-${COMPILER}.a
+            ranlib ${LIBDIR_PATH}/libDSQLite-${COMPILER}.a
             if [[ $? -ge 1 ]]; then
                 fail "ranlib"
             fi
@@ -202,9 +202,9 @@ case ${DC} in
             echo "not supported"
         else
             if [[ $VERBOSE -ge 2 ]]; then
-                echo -e "${DC} -link *.o -of ${LIBDIR_PATH}/lib${PROJECTNAME}-${COMPILER}.a"
+                echo -e "${DC} -link *.o -of ${LIBDIR_PATH}/libDSQLite-${COMPILER}.a"
             fi
-            ${DC} -link  $(find . -name "*.o") -of ${LIBDIR_PATH}/lib${PROJECTNAME}-${COMPILER}.a
+            ${DC} -link  $(find . -name "*.o") -of ${LIBDIR_PATH}/libDSQLite-${COMPILER}.a
             if [[ $? -ge 1 ]]; then
                 fail "${DC} -link"
             fi
