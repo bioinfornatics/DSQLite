@@ -1,15 +1,25 @@
 BUILD
 ------
+
+* With Bash scryt:
 run build.sh script as
 $ ./build.sh
 
 use -h paramter for more info
 $ ./build.sh -h
 
+* With Makefile
+see README here: https://github.com/bioinfornatics/MakefileForD
+$ make all shared-lib geany-tag DFLAGS_IMPORT="-Isrc"  DFLAGS="-O -w -g" 
+
 INSTALL
 -------
+* With Bash scrypt:
 It is quite easy after building just copy:
 $ su -c 'cp -r install/* /'
+
+* With Makefile:
+$ sudo make install install-shared-lib install-geany-tag  LIB_DIR=/usr/lib64 PREFIX=/usr
 
 
 If you build as shared lib remember to run ldconfig:
