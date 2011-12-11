@@ -106,7 +106,7 @@ final class Table{
 
         // SELECT
         Row[] select( string[] column, string statement = null){
-            string sql = "SELECT ( %s ) FROM `%s`".format( column.join(", "), _name );
+            string sql = "SELECT %s FROM `%s`".format( column.join(", "), _name );
             if( statement !is null )
                 sql ~= " WHERE " ~ statement;
             debug writefln( "sql: %s", sql);
@@ -114,7 +114,7 @@ final class Table{
         }
 
         Row[] select( string[] column, string statement, Variant[] values... ){
-            string sql = "SELECT ( %s ) FROM `%s` WHERE %s".format( column.join(", "), _name, statement);
+            string sql = "SELECT %s FROM `%s` WHERE %s".format( column.join(", "), _name, statement);
             debug writefln( "sql: %s", sql);
             return _database.command( sql, values );
         }

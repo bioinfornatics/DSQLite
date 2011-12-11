@@ -21,6 +21,7 @@ private import std.string;
 private import etc.c.sqlite3;
 public  import std.variant;
 private import std.conv;
+private import core.exception : RangeError;
 
 public  import sqlite.table;
 public  import sqlite.statement;
@@ -28,6 +29,18 @@ public  import sqlite.exception;
 
 debug private import std.stdio;
 
+/**
+ * executeScript
+ * This function allow to user read a sql script and execute the content to database
+ * Params:
+ *  databasePath:   Path to database whes script will ne executed
+ *  lines:          One or more sql script line provides by example a file
+ * Examples:
+ * File sql = File( "script.sql", "r");
+ * foreach (T line; lines(f))
+ *     executeScript( "myDB.sqlite3.db", std.conv.to!(string) line );
+ *
+ */
 Database executeScript( string databasePath, string[] lines ...){
 
     void add( ref string[] statements, ref string query, ref size_t stmtCounter){
@@ -58,7 +71,10 @@ Database executeScript( string databasePath, string[] lines ...){
     return db;
 }
 
-
+/**
+ * Database
+ * It is an object for manipulate slaite Database easily
+ */
 class Database{
     private:
         string          _databasePath;
@@ -67,6 +83,12 @@ class Database{
         Statement       _statement;
 
     public:
+        /**
+         * Constructor
+         * Params:
+         *    databasePath = a path to an existing or not slite database
+         *    inMemory     = default false if you want load full databse in memory
+         */
         this( string databasePath, bool inMemory = false ){
             _databasePath= databasePath.idup;
             debug writeln( "opening database" );
@@ -91,6 +113,18 @@ class Database{
             sqlite3_close( _connection );
         }
 
+        /**
+         * createTable
+         * This method allow to user to create a table into current database
+         *
+         * Params:
+         *    tableName =  name to give to table
+         *    columns   =  each field fot this table by pair <Type> <Name>
+         *
+         * Examples:
+         *    Database db = new Database( "myDB.sqlite3.db" );
+         *    db.createTable( "people", "name TEXT", "id INTEGER PRIMARY KEY NOT NULL" );
+         */
         void createTable( string tableName, string[] columns ... ){
             string query = "CREATE TABLE " ~ tableName ~ " ( ";
             foreach( index, column; columns ){
@@ -104,12 +138,29 @@ class Database{
             _tables[tableName] = new Table( this, tableName);
         }
 
+        /**
+         * createTable
+         * This method allow to user to create a table into current database
+         *
+         * Params:
+         *    query =  SQL query for create a table
+         *
+         * Examples:
+         *    Database db = new Database( "myDB.sqlite3.db" );
+         *    db.createTable( "CREATE TABLE people ( name TEXT, id INTEGER PRIMARY KEY NOT NULL);" );
+         */
         void createTable( string query ){
             debug writefln( "sql: %s", query );
             command( query );
             updateTablesList;
         }
 
+        /**
+         * dropTable
+         * Remove given table from current database
+         * Params:
+         *     tableName = Name to table where will be dropped
+         */
         void dropTable( string tableName ){
             string query = "DROP TABLE " ~ tableName;
             command( query );
@@ -117,14 +168,28 @@ class Database{
                 _tables.remove( tableName );
         }
 
+        /**
+         * connection
+         * In normal use you do not need use it
+         */
         @property sqlite3* connection(){
             return _connection;
         }
 
+
+        /**
+         * tables
+         * Returns:
+         *     all tables in current database
+         */
         @property Row[] tables(){
             return command( "SELECT name FROM sqlite_master WHERE type='table'" );
         }
 
+        /**
+         * updateTablesList
+         * update tables used in current table. This it is usefull when you create a table with command and not with createTable method
+         */
         @property void updateTablesList(){
             Row[] result = tables;
             foreach( table; result ){
@@ -136,26 +201,66 @@ class Database{
             }
         }
 
+        /**
+         * table_info
+         * Returns:
+         *     give table structure <FieldName> <Type>
+         */
         Row[] table_info( string tableName ){
             return _statement.prepare( "PRAGMA table_info( " ~ tableName ~ " )" );
         }
 
+        /**
+         * command
+         * This method is usefull for run one custom command
+         * But prefer in first insert, select, udpdate method define in Table
+         * Examples:
+         *     b.command( "CREATE TABLE people ( name TEXT, id INTEGER PRIMARY KEY NOT NULL);" );
+         */
         Row[] command( string query ){
            return _statement.prepare( query );
         }
 
+        /**
+         * command
+         * This method is usefull for run muliple custom commands
+         * But prefer in first insert, select, udpdate method define in Table
+         * Examples:
+         *     b.command( ["CREATE TABLE people ( name TEXT, id INTEGER PRIMARY KEY NOT NULL);", "CREATE TABLE car ( constructor TEXT, model TEXT, id INTEGER PRIMARY KEY NOT NULL)"] );
+         */
         void command( string[] querys ){
             _statement.prepare( querys );
         }
 
+        /**
+         * command
+         * This method is usefull for run one custom command
+         * But prefer in first insert, select, udpdate method define in Table
+         * Examples:
+         *     b.command( "SELECT FROM people ( name ) WHERE id=?;", cast(Variant)1 );
+         *     b.command( "SELECT FROM car ( name ) WHERE constructor=? and model)?;", cast(Variant) "citroën", cast(Variant) "C5" );
+         */
         Row[] command( string query, Variant[] values... ){
             return _statement.prepare( query, values );
         }
 
+        /**
+         * command
+         * This method is usefull for run multiple custom command
+         * But prefer in first insert, select, udpdate method define in Table
+         * Examples:
+         *     b.command( ["SELECT FROM people ( name ) WHERE id=?;", "SELECT FROM car ( name ) WHERE constructor=? and model)?;"], [ [cast(Variant)1],  [cast(Variant)"citroën", cast(Variant)"C5" ] ] );
+         */
         void command( string[] querys, Variant[][] values... ){
             _statement.prepare( querys, values );
         }
 
+        /**
+         * opApply
+         * This method allow user to iterate through database for get table
+         * foreach(Table t; db)
+         *     t.select( ["name"], "id=?", cast(Variant) 5);
+         */
         int opApply( int delegate(ref Table) dg ){
             int result = 0;
             foreach( name, table; _tables )
@@ -163,7 +268,15 @@ class Database{
             return result;
         }
 
+        /**
+         * opIndex
+         * This method allow user to get table by his name
+         * Example:
+         *     Table people = db["people"];
+         */
         Table opIndex( string name){
+            if( name !in _tables )
+                throw new RangeError("Table: %s does not exist!".format( name ) );
             return _tables[name];
         }
 
