@@ -166,22 +166,22 @@ install-shared-lib:
 
 install-header:
 	$(MKDIR) $(INCLUDE_DIR)
-	$(CP) $(IMPORT_PATH)$(PATH_SEP)$(PROJECT_NAME) $(DESTDIR)$(INCLUDE_DIR)
+	$(CP) $(IMPORT_PATH)$(PATH_SEP)sqlite $(DESTDIR)$(INCLUDE_DIR)
 	@echo ------------------ Installing header done
 
 install-doc:
-	$(MKDIR) $(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)$(PROJECT_NAME)$(PATH_SEP)normal_doc$(PATH_SEP)
-	$(CP) $(DOC_PATH)$(PATH_SEP)* $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)$(PROJECT_NAME)$(PATH_SEP)normal_doc$(PATH_SEP)
+	$(MKDIR) $(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)sqlite$(PATH_SEP)normal_doc$(PATH_SEP)
+	$(CP) $(DOC_PATH)$(PATH_SEP)* $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)sqlite$(PATH_SEP)normal_doc$(PATH_SEP)
 	@echo ------------------ Installing doc done
 
 install-ddoc:
-	$(MKDIR) $(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)$(PROJECT_NAME)$(PATH_SEP)cute_doc$(PATH_SEP)
-	$(CP) $(DDOC_PATH)$(PATH_SEP)* $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)$(PROJECT_NAME)$(PATH_SEP)cute_doc$(PATH_SEP)
+	$(MKDIR) $(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)sqlite$(PATH_SEP)cute_doc$(PATH_SEP)
+	$(CP) $(DDOC_PATH)$(PATH_SEP)* $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)sqlite$(PATH_SEP)cute_doc$(PATH_SEP)
 	@echo ------------------ Installing ddoc done
 
 install-geany-tag:
 	$(MKDIR) $(DATA_DIR)$(PATH_SEP)geany$(PATH_SEP)tags$(PATH_SEP)
-	$(CP) $(PROJECT_NAME).d.tags $(DESTDIR)$(DATA_DIR)$(PATH_SEP)geany$(PATH_SEP)tags$(PATH_SEP)
+	$(CP) sqlite.d.tags $(DESTDIR)$(DATA_DIR)$(PATH_SEP)geany$(PATH_SEP)tags$(PATH_SEP)
 	@echo ------------------ Installing geany tag done
 
 install-pkgfile:
