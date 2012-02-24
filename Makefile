@@ -1,9 +1,13 @@
+
 export PROJECT_NAME     = DSQLite
 export AUTHOR           = "Jonathan MERCIER"
 export DESCRIPTION      = "D library for use sqlite "
-export VERSION          = "1"
+export MAJOR_VERSION    = 1
+export MINOR_VERSION    = 0
+export PATCH_VERSION    = 0
+export PROJECT_VERSION  = $(MAJOR_VERSION).$(MINOR_VERSION).$(PATCH_VERSION)
 export LICENSE          = "GPLv3"
-export ROOT_SOURCE_DIR  = sqlite
+export ROOT_SOURCE_DIR  = "sqlite"
 DDOCFILES               =
 
 # include some command
@@ -16,6 +20,11 @@ HEADERS             = $(patsubst %.d,$(IMPORT_PATH)$(PATH_SEP)%.di,  $(SOURCES))
 DOCUMENTATIONS      = $(patsubst %.d,$(DOC_PATH)$(PATH_SEP)%.html,   $(SOURCES))
 DDOCUMENTATIONS     = $(patsubst %.d,$(DDOC_PATH)$(PATH_SEP)%.html,  $(SOURCES))
 DDOC_FLAGS          = $(foreach macro,$(DDOCFILES), $(DDOC_MACRO)$(macro))
+space :=
+space +=
+
+stripBugfix = $(subst $(space),.,$(strip $(wordlist 1, 2, $(subst ., ,$(1)))))
+
 define make-lib
 	$(MKDIR) $(DLIB_PATH)
 	$(AR) rcs $(DLIB_PATH)$(PATH_SEP)$@ $^
@@ -25,8 +34,7 @@ endef
 ############# BUILD #############
 all: static-lib header doc pkgfile-static
 	@echo ------------------ Building $^ done
-
-all-shared: static-shared header doc pkgfile-shared
+all-shared: shared-lib header doc pkgfile-shared
 	@echo ------------------ Building $^ done
 
 .PHONY : pkgfile
@@ -34,9 +42,9 @@ all-shared: static-shared header doc pkgfile-shared
 .PHONY : ddoc
 .PHONY : clean
 
-static-lib: $(LIBNAME)
+static-lib: $(STATIC_LIBNAME)
 
-shared-lib: $(SONAME)
+shared-lib: $(SHARED_LIBNAME)
 
 header: $(HEADERS)
 
@@ -54,22 +62,22 @@ geany-tag:
 
 pkgfile-shared:
 	@echo ------------------ Building pkg-config file
-	@echo "# Package Information for pkg-config"                                    >  $(PKG_CONFIG_FILE)
-	@echo "# Author: $(AUTHOR)"                                                     >> $(PKG_CONFIG_FILE)
-	@echo "# Created: `date`"                                                       >> $(PKG_CONFIG_FILE)
-	@echo "# Licence: $(LICENSE)"                                                   >> $(PKG_CONFIG_FILE)
-	@echo                                                                           >> $(PKG_CONFIG_FILE)
-	@echo prefix=$(PREFIX)                                                          >> $(PKG_CONFIG_FILE)
-	@echo exec_prefix=$(PREFIX)                                                     >> $(PKG_CONFIG_FILE)
-	@echo libdir=$(LIB_DIR)                                                         >> $(PKG_CONFIG_FILE)
-	@echo includedir=$(INCLUDE_DIR)sqlite                                           >> $(PKG_CONFIG_FILE)
-	@echo                                                                           >> $(PKG_CONFIG_FILE)
-	@echo Name: "$(PROJECT_NAME)"                                                   >> $(PKG_CONFIG_FILE)
-	@echo Description: "$(DESCRIPTION)"                                             >> $(PKG_CONFIG_FILE)
-	@echo Version: "$(VERSION)"                                                     >> $(PKG_CONFIG_FILE)
-	@echo Libs: $(LINKERFLAG)-l$(PROJECT_NAME)-$(COMPILER) $(LINKERFLAG)-lsqlite3   >> $(PKG_CONFIG_FILE)
-	@echo Cflags: -I$(INCLUDE_DIR)sqlite $(LDCFLAGS)                                >> $(PKG_CONFIG_FILE)
-	@echo                                                                           >> $(PKG_CONFIG_FILE)
+	@echo "# Package Information for pkg-config"                        >  $(PKG_CONFIG_FILE)
+	@echo "# Author: $(AUTHOR)"                                         >> $(PKG_CONFIG_FILE)
+	@echo "# Created: `date`"                                           >> $(PKG_CONFIG_FILE)
+	@echo "# Licence: $(LICENSE)"                                       >> $(PKG_CONFIG_FILE)
+	@echo                                                               >> $(PKG_CONFIG_FILE)
+	@echo prefix=$(PREFIX)                                              >> $(PKG_CONFIG_FILE)
+	@echo exec_prefix=$(PREFIX)                                         >> $(PKG_CONFIG_FILE)
+	@echo libdir=$(LIB_DIR)                                             >> $(PKG_CONFIG_FILE)
+	@echo includedir=$(INCLUDE_DIR)                                     >> $(PKG_CONFIG_FILE)
+	@echo                                                               >> $(PKG_CONFIG_FILE)
+	@echo Name: "$(PROJECT_NAME)"                                       >> $(PKG_CONFIG_FILE)
+	@echo Description: "$(DESCRIPTION)"                                 >> $(PKG_CONFIG_FILE)
+	@echo Version: "$(PROJECT_VERSION)"                                 >> $(PKG_CONFIG_FILE)
+	@echo Libs: $(LINKERFLAG)-l$(PROJECT_NAME)-$(COMPILER)              >> $(PKG_CONFIG_FILE)
+	@echo Cflags: -I$(INCLUDE_DIR)$(PATH_SEP)sqlite $(LDCFLAGS)         >> $(PKG_CONFIG_FILE)
+	@echo                                                               >> $(PKG_CONFIG_FILE)
 
 pkgfile-static:
 	@echo ------------------ Building pkg-config file
@@ -81,26 +89,27 @@ pkgfile-static:
 	@echo prefix=$(PREFIX)                                              >> $(PKG_CONFIG_FILE)
 	@echo exec_prefix=$(PREFIX)                                         >> $(PKG_CONFIG_FILE)
 	@echo libdir=$(LIB_DIR)                                             >> $(PKG_CONFIG_FILE)
-	@echo includedir=$(INCLUDE_DIR)sqlite                               >> $(PKG_CONFIG_FILE)
+	@echo includedir=$(INCLUDE_DIR)                                     >> $(PKG_CONFIG_FILE)
 	@echo                                                               >> $(PKG_CONFIG_FILE)
 	@echo Name: "$(PROJECT_NAME)"                                       >> $(PKG_CONFIG_FILE)
 	@echo Description: "$(DESCRIPTION)"                                 >> $(PKG_CONFIG_FILE)
-	@echo Version: "$(VERSION)"                                         >> $(PKG_CONFIG_FILE)
-	@echo Libs: $(LIB_DIR)$(PATH_SEP)$(LIBNAME) $(LINKERFLAG)-lsqlite3  >> $(PKG_CONFIG_FILE)
-	@echo Cflags: -I$(INCLUDE_DIR)sqlite $(LDCFLAGS)                    >> $(PKG_CONFIG_FILE)
+	@echo Version: "$(PROJECT_VERSION)"                                 >> $(PKG_CONFIG_FILE)
+	@echo Libs: $(LIB_DIR)$(PATH_SEP)$(STATIC_LIBNAME)                  >> $(PKG_CONFIG_FILE)
+	@echo Cflags: -I$(INCLUDE_DIR)$(PATH_SEP)sqlite $(LDCFLAGS)         >> $(PKG_CONFIG_FILE)
 	@echo                                                               >> $(PKG_CONFIG_FILE)
 
 
 # For build lib need create object files and after run make-lib
-$(LIBNAME): $(OBJECTS)
+$(STATIC_LIBNAME): $(OBJECTS)
 	@echo ------------------ Building static library
 	$(make-lib)
 
 # For build shared lib need create shared object files
-$(SONAME): $(PICOBJECTS)
+$(SHARED_LIBNAME): $(PICOBJECTS)
 	@echo ------------------ Building shared library
 	$(MKDIR) $(DLIB_PATH)
-	$(DC) -shared $(OUTPUT)$(DLIB_PATH)$(PATH_SEP)$@.$(VERSION) $^
+	$(CC) -l$(PHOBOS) -l$(DRUNTIME) -lsqlite3 -shared -Wl,-soname,$@.$(MAJOR_VERSION) -o $(DLIB_PATH)$(PATH_SEP)$@.$(MAJOR_VERSION) $^
+#~ $(DC) $(LINKERFLAG)-lsqlite3 -shared $(SONAME_FLAG) $@.$(MAJOR_VERSION) $(OUTPUT)$(DLIB_PATH)$(PATH_SEP)$@.$(MAJOR_VERSION) $^
 
 # create object files
 $(BUILD_PATH)$(PATH_SEP)%.o : %.d
@@ -108,7 +117,7 @@ $(BUILD_PATH)$(PATH_SEP)%.o : %.d
 
 # create shared object files
 $(BUILD_PATH)$(PATH_SEP)%.pic.o : %.d
-	$(DC) $(DCFLAGS) $(DCFLAGS_LINK) $(FPIC) $(DCFLAGS_IMPORT) -c $< $(OUTPUT)$@
+	$(DC) $(DCFLAGS) $(DCFLAGS_LINK) $(LINKERFLAG)-lsqlite3 $(FPIC)  $(DCFLAGS_IMPORT) -c $< $(OUTPUT)$@
 
 # Generate Header files
 $(IMPORT_PATH)$(PATH_SEP)%.di : %.d
@@ -138,11 +147,11 @@ clean-shared-objects:
 	@echo ------------------ Cleaning shared-object done
 
 clean-static-lib:
-	$(RM) $(DLIB_PATH)$(PATH_SEP)$(LIBNAME)
+	$(RM) $(DLIB_PATH)$(PATH_SEP)$(STATIC_LIBNAME)
 	@echo ------------------ Cleaning static-lib done
 
 clean-shared-lib:
-	$(RM)  $(DLIB_PATH)$(PATH_SEP)$(SONAME).$(VERSION)
+	$(RM)  $(DLIB_PATH)$(PATH_SEP)$(SHARED_LIBNAME).$(MAJOR_VERSION)
 	@echo ------------------ Cleaning shared-lib done
 
 clean-header:
@@ -176,37 +185,38 @@ install-shared: install-shared-lib install-doc install-header install-pkgfile
 	@echo ------------------ Installing $^ done
 
 install-static-lib:
-	$(MKDIR) $(LIB_DIR)
-	$(CP) $(DLIB_PATH)$(PATH_SEP)$(LIBNAME) $(DESTDIR)$(LIB_DIR)
+	$(MKDIR) $(DESTDIR)$(LIB_DIR)
+	$(CP) $(DLIB_PATH)$(PATH_SEP)$(STATIC_LIBNAME) $(DESTDIR)$(LIB_DIR)
 	@echo ------------------ Installing static-lib done
 
 install-shared-lib:
-	$(MKDIR) $(LIB_DIR)
-	$(CP) $(DLIB_PATH)$(PATH_SEP)$(SONAME) $(DESTDIR)$(LIB_DIR)
-	ln -s $(DESTDIR)$(LIB_DIR)$(SONAME).$(SO_VERSION)   $(DESTDIR)$(LIB_DIR)$(PATH_SEP)$(SONAME)
+	$(MKDIR) $(DESTDIR)$(LIB_DIR)
+	$(CP) $(DLIB_PATH)$(PATH_SEP)$(SHARED_LIBNAME).$(MAJOR_VERSION) $(DESTDIR)$(LIB_DIR)
+	cd $(DESTDIR)$(LIB_DIR)$(PATH_SEP) && $(LN) $(SHARED_LIBNAME).$(MAJOR_VERSION) $(SHARED_LIBNAME).$(PROJECT_VERSION)
+	cd $(DESTDIR)$(LIB_DIR)$(PATH_SEP) && $(LN) $(SHARED_LIBNAME).$(PROJECT_VERSION) $(SHARED_LIBNAME)
 	@echo ------------------ Installing shared-lib done
 
 install-header:
-	$(MKDIR) $(INCLUDE_DIR)
+	$(MKDIR) $(DESTDIR)$(INCLUDE_DIR)
 	$(CP) $(IMPORT_PATH)$(PATH_SEP)sqlite $(DESTDIR)$(INCLUDE_DIR)
 	@echo ------------------ Installing header done
 
 install-doc:
-	$(MKDIR) $(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)sqlite$(PATH_SEP)normal_doc$(PATH_SEP)
-	$(CP) $(DOC_PATH)$(PATH_SEP)* $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)sqlite$(PATH_SEP)normal_doc$(PATH_SEP)
+	$(MKDIR) $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)$(PROJECT_NAME)$(PATH_SEP)normal_doc$(PATH_SEP)
+	$(CP) $(DOC_PATH)$(PATH_SEP)* $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)$(PROJECT_NAME)$(PATH_SEP)normal_doc$(PATH_SEP)
 	@echo ------------------ Installing doc done
 
 install-ddoc:
-	$(MKDIR) $(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)sqlite$(PATH_SEP)cute_doc$(PATH_SEP)
-	$(CP) $(DDOC_PATH)$(PATH_SEP)* $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)sqlite$(PATH_SEP)cute_doc$(PATH_SEP)
+	$(MKDIR) $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)$(PROJECT_NAME)$(PATH_SEP)cute_doc$(PATH_SEP)
+	$(CP) $(DDOC_PATH)$(PATH_SEP)* $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)$(PROJECT_NAME)$(PATH_SEP)cute_doc$(PATH_SEP)
 	@echo ------------------ Installing ddoc done
 
 install-geany-tag:
-	$(MKDIR) $(DATA_DIR)$(PATH_SEP)geany$(PATH_SEP)tags$(PATH_SEP)
-	$(CP) sqlite.d.tags $(DESTDIR)$(DATA_DIR)$(PATH_SEP)geany$(PATH_SEP)tags$(PATH_SEP)
+	$(MKDIR) $(DESTDIR)$(DATA_DIR)$(PATH_SEP)geany$(PATH_SEP)tags$(PATH_SEP)
+	$(CP) $(PROJECT_NAME).d.tags $(DESTDIR)$(DATA_DIR)$(PATH_SEP)geany$(PATH_SEP)tags$(PATH_SEP)
 	@echo ------------------ Installing geany tag done
 
 install-pkgfile:
-	$(MKDIR) $(PKGCONFIG_DIR)
-	$(CP) $(PKG_CONFIG_FILE) $(DESTDIR)$(PKGCONFIG_DIR)
+	$(MKDIR) $(DESTDIR)$(PKGCONFIG_DIR)
+	$(CP) $(PKG_CONFIG_FILE) $(DESTDIR)$(PKGCONFIG_DIR)$(PATH_SEP)$(PROJECT_NAME).pc
 	@echo ------------------ Installing pkgfile done

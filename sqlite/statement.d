@@ -20,7 +20,6 @@ private import std.variant;
 private import std.ascii : newline;
 private import std.conv;
 private import std.string;
-private import etc.c.sqlite3;
 private import sqlite.exception;
 
 private import sqlite.database;

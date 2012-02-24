@@ -18,14 +18,17 @@ This file is part of DSQLite.
 module sqlite.database;
 
 private import std.string;
-private import etc.c.sqlite3;
-public  import std.variant;
 private import std.conv;
+public  import std.variant;
+
 private import core.exception : RangeError;
 
+
+public  import sqlite.c;
 public  import sqlite.table;
 public  import sqlite.statement;
 public  import sqlite.exception;
+private import sqlite.loader;
 
 debug private import std.stdio;
 
@@ -41,6 +44,7 @@ debug private import std.stdio;
  *     executeScript( "myDB.sqlite3.db", std.conv.to!(string) line );
  *
  */
+
 Database executeScript( string databasePath, string[] lines ...){
 
     void add( ref string[] statements, ref string query, ref size_t stmtCounter){
@@ -77,6 +81,7 @@ Database executeScript( string databasePath, string[] lines ...){
  */
 class Database{
     private:
+        DynamicLib      _loader;
         string          _databasePath;
         sqlite3*        _connection;
         Table[string]   _tables;
@@ -90,9 +95,34 @@ class Database{
          *    inMemory     = default false if you want load full databse in memory
          */
         this( string databasePath, bool inMemory = false ){
-            _databasePath= databasePath.idup;
+            // open dynamic lib
+            _loader         = DynamicLib("libsqlite3", "0");
+            // read / load symbols
+            _loader.LoadSymbol("sqlite3_bind_double"         , sqlite3_bind_double);
+            _loader.LoadSymbol("sqlite3_bind_int"            , sqlite3_bind_int);
+            _loader.LoadSymbol("sqlite3_bind_int64"          , sqlite3_bind_int64);
+            _loader.LoadSymbol("sqlite3_bind_text"           , sqlite3_bind_text);
+            _loader.LoadSymbol("sqlite3_clear_bindings"      , sqlite3_clear_bindings);
+            _loader.LoadSymbol("sqlite3_close"               , sqlite3_close);
+            _loader.LoadSymbol("sqlite3_column_count"        , sqlite3_column_count);
+            _loader.LoadSymbol("sqlite3_column_database_name", sqlite3_column_database_name);
+            _loader.LoadSymbol("sqlite3_column_double"       , sqlite3_column_double);
+            _loader.LoadSymbol("sqlite3_column_int"          , sqlite3_column_int);
+            _loader.LoadSymbol("sqlite3_column_name"         , sqlite3_column_name);
+            _loader.LoadSymbol("sqlite3_column_origin_name"  , sqlite3_column_origin_name);
+            _loader.LoadSymbol("sqlite3_column_table_name"   , sqlite3_column_table_name);
+            _loader.LoadSymbol("sqlite3_column_text"         , sqlite3_column_text);
+            _loader.LoadSymbol("sqlite3_errmsg"              , sqlite3_errmsg);
+            _loader.LoadSymbol("sqlite3_exec"                , sqlite3_exec);
+            _loader.LoadSymbol("sqlite3_finalize"            , sqlite3_finalize);
+            _loader.LoadSymbol("sqlite3_open"                , sqlite3_open);
+            _loader.LoadSymbol("sqlite3_prepare_v2"          , sqlite3_prepare_v2);;
+            _loader.LoadSymbol("sqlite3_reset"               , sqlite3_reset);
+            _loader.LoadSymbol("sqlite3_step"                , sqlite3_step);
+            // open database
+            _databasePath   = databasePath.idup;
             debug writeln( "opening database" );
-            int status   = sqlite3_open( _databasePath.toStringz, &_connection );
+            int status      = sqlite3_open( _databasePath.toStringz, &_connection );
             if( status != SQLITE_OK )
                 throw new SQLiteException( to!string(sqlite3_errmsg( _connection )), __FILE__, __LINE__ );
             debug writeln( "init statement" );
@@ -281,4 +311,3 @@ class Database{
         }
 
 }
-
