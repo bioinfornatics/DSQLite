@@ -192,13 +192,13 @@ install-header:
 	@echo ------------------ Installing header done
 
 install-doc:
-	$(MKDIR) $(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)sqlite$(PATH_SEP)normal_doc$(PATH_SEP)
-	$(CP) $(DOC_PATH)$(PATH_SEP)* $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)sqlite$(PATH_SEP)normal_doc$(PATH_SEP)
+	$(MKDIR) $(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)dsqlite$(PATH_SEP)normal_doc$(PATH_SEP)
+	$(CP) $(DOC_PATH)$(PATH_SEP)* $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)dsqlite$(PATH_SEP)normal_doc$(PATH_SEP)
 	@echo ------------------ Installing doc done
 
 install-ddoc:
-	$(MKDIR) $(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)sqlite$(PATH_SEP)cute_doc$(PATH_SEP)
-	$(CP) $(DDOC_PATH)$(PATH_SEP)* $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)sqlite$(PATH_SEP)cute_doc$(PATH_SEP)
+	$(MKDIR) $(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)dsqlite$(PATH_SEP)cute_doc$(PATH_SEP)
+	$(CP) $(DDOC_PATH)$(PATH_SEP)* $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)dsqlite$(PATH_SEP)cute_doc$(PATH_SEP)
 	@echo ------------------ Installing ddoc done
 
 install-geany-tag:
