@@ -183,9 +183,7 @@ install-static-lib:
 install-shared-lib:
 	$(MKDIR) $(LIB_DIR)
 	$(CP) $(DLIB_PATH)$(PATH_SEP)$(SONAME).$(VERSION) $(DESTDIR)$(LIB_DIR)
-	pushd $(DESTDIR)$(LIB_DIR)
-	ln -s $(SONAME).$(SO_VERSION)   $(SONAME)
-	popd
+	pushd $(DESTDIR)$(LIB_DIR); ln -s $(SONAME).$(SO_VERSION)   $(SONAME); popd
 	@echo ------------------ Installing shared-lib done
 
 install-header:
