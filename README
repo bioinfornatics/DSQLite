@@ -1,3 +1,10 @@
+REQUIRE
+------
+
+A D compilater: ldc, gdc, dmd
+Standard library Phobos with his devel file
+libsqlite
+
 BUILD
 ------
 
@@ -8,9 +15,14 @@ $ ./build.sh
 use -h paramter for more info
 $ ./build.sh -h
 
-* With Makefile
+* With Makefile:
 see README here: https://github.com/bioinfornatics/MakefileForD
-$ make all shared-lib geany-tag DFLAGS_IMPORT="-Isrc"  DFLAGS="-O -w -g"
+
+** as shared lib:
+$ make all-shared geany-tag DFLAGS_IMPORT="-Isrc"  DFLAGS="-O -w -g"
+
+** as static lib:
+$ make all geany-tag DFLAGS_IMPORT="-Isrc"  DFLAGS="-O -w -g"
 
 INSTALL
 -------
@@ -18,8 +30,11 @@ INSTALL
 It is quite easy after building just copy:
 $ su -c 'cp -r install/* /'
 
-* With Makefile:
-$ sudo make install install-shared-lib install-geany-tag  LIB_DIR=/usr/lib64 PREFIX=/usr
+* With Makefile as shared lib:
+$ sudo make -j4 install-shared install-geany-tag  LIB_DIR=/usr/lib64 PREFIX=/usr
+
+* With Makefile as static lib:
+$ sudo make -j4 install-static install-geany-tag  LIB_DIR=/usr/lib64 PREFIX=/usr
 
 
 If you build as shared lib remember to run ldconfig:
@@ -37,4 +52,3 @@ EXAMPLES
 for build and test example you need link to your sqlite library. I assume DSQLite lib is in prefix /usr/local/ and sqlite lib in /usr/lib64:
 $ ldc2 $(pkg-config --cflags --libs DSQLite) test_sql.d
 $ ./test_sql
-
