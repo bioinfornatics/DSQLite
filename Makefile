@@ -182,7 +182,7 @@ install-static-lib:
 
 install-shared-lib:
 	$(MKDIR) $(LIB_DIR)
-	$(CP) $(DLIB_PATH)$(PATH_SEP)$(SONAME) $(DESTDIR)$(LIB_DIR)
+	$(CP) $(DLIB_PATH)$(PATH_SEP)$(SONAME).$(VERSION) $(DESTDIR)$(LIB_DIR)
 	pushd $(DESTDIR)$(LIB_DIR)
 	ln -s $(SONAME).$(SO_VERSION)   $(SONAME)
 	popd
@@ -205,7 +205,7 @@ install-ddoc:
 
 install-geany-tag:
 	$(MKDIR) $(DATA_DIR)$(PATH_SEP)geany$(PATH_SEP)tags$(PATH_SEP)
-	$(CP) sqlite.d.tags $(DESTDIR)$(DATA_DIR)$(PATH_SEP)geany$(PATH_SEP)tags$(PATH_SEP)
+	$(CP) $(PROJECT_NAME).d.tags $(DESTDIR)$(DATA_DIR)$(PATH_SEP)geany$(PATH_SEP)tags$(PATH_SEP)
 	@echo ------------------ Installing geany tag done
 
 install-pkgfile:
