@@ -1,879 +1,567 @@
-
-                        LICENCE PUBLIQUE G�N�RALE GNU
-                         Version 3, du 29 juin 2007.
-
+Relecture GPL TF
+LICENCE PUBLIQUE GÃNÃRALE GNU
+Version 3, du 29 juin 2007.
 Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
-
-Chacun est autoris� � copier et distribuer des copies conformes de ce
-document de licence, mais toute modification en est proscrite.
-
-Traduction fran�aise par Philippe Verdy
-<verdy_p (�) wanadoo (point) fr>, le 30 juin 2007.
-
-_______________________________________________________________________
-
-Avertissement important au sujet de cette traduction fran�aise.
-_______________________________________________________________________
-
-Ceci est une traduction en fran�ais de la licence �GNU General Public
-License� (GPL). Cette traduction est fournie ici dans l�espoir qu�elle
-facilitera sa compr�hension, mais elle ne constitue pas une traduction
-officielle ou approuv�e d�un point de vue juridique.
-
-La Free Software Foundation (FSF) ne publie pas cette traduction et ne
-l�a pas approuv�e en tant que substitut valide au plan l�gal pour la
-licence authentique �GNU General Public Licence�. Cette traduction n�a
-pas encore �t� pass�e en revue attentivement par un juriste et donc le
-traducteur ne peut garantir avec certitude qu�elle repr�sente avec
-exactitude la signification l�gale des termes de la licence authentique
-�GNU General Public License� publi�e en anglais. Cette traduction
-n��tablit donc l�galement aucun des termes et conditions d�utilisation
-d�un logiciel sous licence GNU GPL � seul le texte original en anglais
-le fait. Si vous souhaitez �tre s�r que les activit�s que vous projetez
-seront autoris�es par la GNU General Public License, veuillez vous
-r�f�rer � sa seule version anglaise authentique.
-
-La FSF vous recommande fermement de ne pas utiliser cette traduction en
-tant que termes officiels pour vos propres programmes ; veuillez plut�t
-utiliser la version anglaise authentique telle que publi�e par la FSF.
-Si vous choisissez d�acheminer cette traduction en m�me temps qu�un
-Programme sous licence GNU GPL, cela ne vous dispense pas de l�obligation
-d�acheminer en m�me temps une copie de la licence authentique en anglais,
-et de conserver dans la traduction cet avertissement important en
-fran�ais et son �quivalent en anglais ci-dessous.
-
-_______________________________________________________________________
-
+Chacun est autorisÃ© Ã  copier et distribuer des copies conformes de ce document de licence,
+mais toute modification en est proscrite.
+Traduction rÃ©alisÃ©e par Olivier Hugot, Benjamin Jean et Sandrine Rambaud sur la base des
+travaux de Philippe Verdy et des membres de la liste GNU Trad de l'April
+Avertissement important au sujet de cette traduction franÃ§aise.
+Ceci est une traduction en franÃ§ais de la licence âGNU General Public Licenseâ (GPL). Cette
+traduction est fournie ici dans lâespoir quâelle facilitera sa comprÃ©hension, mais elle ne
+constitue pas une traduction officielle ou approuvÃ©e dâun point de vue juridique.
+La Free Software Foundation (FSF) ne publie pas cette traduction et ne lâa pas approuvÃ©e en
+tant que substitut valide au plan lÃ©gal pour la licence authentique âGNU General Public
+Licenceâ. Le traducteur ne peut garantir avec certitude quâelle reprÃ©sente avec exactitude la
+signification lÃ©gale des termes de la licence authentique âGNU General Public Licenseâ
+publiÃ©e en anglais. Cette traduction nâÃ©tablit donc lÃ©galement aucun des termes et conditions
+dâutilisation dâun logiciel sous licence GNU GPL â seul le texte original en anglais le fait.
+Si vous souhaitez Ãªtre sÃ»r que les activitÃ©s que vous projetez seront autorisÃ©es par la GNU
+General Public License, veuillez vous rÃ©fÃ©rer Ã  sa seule version anglaise authentique.
+La FSF vous recommande fortement de ne pas utiliser cette traduction en tant que termes
+officiels pour vos propres programmes ; veuillez plutÃ´t utiliser la version anglaise
+authentique telle que publiÃ©e par la FSF. Si vous choisissez de transmettre cette traduction en
+mÃªme temps quâun Programme sous licence GNU GPL, cela ne vous dispense pas de
+lâobligation de transmettre en mÃªme temps une copie de la licence authentique en anglais, et
+de conserver dans la traduction cet important avertissement en franÃ§ais et son Ã©quivalent en
+anglais ci-dessous.
 Important Warning About This French Translation.
-_______________________________________________________________________
-
-This is a translation of the GNU General Public License (GPL) into
-French. This translation is distributed in the hope that it will
-facilitate understanding, but it is not an official or legally approved
-translation.
-
-The Free Software Foundation (FSF) is not the publisher of this
-translation and has not approved it as a legal substitute for the
-authentic GNU General Public License. The translation has not been
-reviewed carefully by lawyers, and therefore the translator cannot be
-sure that it exactly represents the legal meaning of the authentic GNU
-General Public License published in English. This translation does not
-legally state the terms and conditions of use of any Program licenced
-under GNU GPL � only the original English text of the GNU LGPL does
-that. If you wish to be sure whether your planned activities are
-permitted by the GNU General Public License, please refer to its sole
-authentic English version.
-
-The FSF strongly urges you not to use this translation as the official
-distribution terms for your programs; instead, please use the authentic
-English version published by the FSF. If you choose to convey this
-translation along with a Program covered by the GPL Licence, this does
-not remove your obligation to convey at the same time a copy of the
-authentic GNU GPL License in English, and you must keep in this
-translation this important warning in English and its equivalent in
-French above.
-
-_______________________________________________________________________
-
-
-Pr�ambule
-
-La Licence Publique G�n�rale GNU (�GNU General Public License�) est une
-licence libre, en �copyleft�, destin�e aux �uvres logicielles et
-d�autres types de travaux.
-
-Les licences de la plupart des �uvres logicielles et autres travaux de
-pratique sont con�ues pour �ter votre libert� de partager et modifier
-ces travaux. En contraste, la Licence Publique G�n�rale GNU a pour but
-de garantir votre libert� de partager et changer toutes les versions
-d�un programme � afin d�assurer qu�il restera libre pour tous les
-utilisateurs. Nous, la Free Software Foundation, utilisons la Licence
-Publique G�n�rale GNU pour la plupart de nos logiciels ; cela
-s�applique aussi � tout autre travail �dit� de cette fa�on par ses
-auteurs. Vous pouvez, vous aussi, l�appliquer � vos propres programmes.
-
-Quand nous parlons de logiciel libre (�free�), nous nous r�f�rons � la
-libert� (�freedom�), pas au prix. Nos Licences Publiques G�n�rales sont
-con�ues pour assurer que vous ayez la libert� de distribuer des copies
-de logiciel libre (et le facturer si vous le souhaitez), que vous
-receviez le code source ou pouviez l�obtenir si vous le voulez, que
-vous pouviez modifier le logiciel ou en utiliser toute partie dans de
-nouveaux logiciels libres, et que vous sachiez que vous avez le droit
-de faire tout ceci.
-
-Pour prot�ger vos droits, nous avons besoin d�emp�cher que d�autres
-vous restreignent ces droits ou vous demande de leur abandonner ces
-droits. En cons�quence, vous avez certaines responsabilit�s si vous
-distribuez des copies d�un tel programme ou si vous le modifiez :
-les responsabilit�s de respecter la libert� des autres.
-
-Par exemple, si vous distribuez des copies d�un tel programme, que ce
-soit gratuit ou contre un paiement, vous devez accorder aux
-Destinataires les m�mes libert�s que vous avez re�ues. Vous devez aussi
-vous assurer qu�eux aussi re�oivent ou peuvent recevoir son code
-source. Et vous devez leur montrer les termes de cette licence afin
-qu�ils connaissent leurs droits.
-
-Les d�veloppeurs qui utilisent la GPL GNU prot�gent vos droits en deux
-�tapes : (1) ils affirment leur droits d�auteur (�copyright�) sur le
-logiciel, et (2) vous accordent cette Licence qui vous donne la
-permission l�gale de le copier, le distribuer et/ou le modifier.
-
-Pour la protection des d�veloppeurs et auteurs, la GPL stipule
-clairement qu�il n�y a pas de garantie pour ce logiciel libre. Aux fins
-� la fois des utilisateurs et auteurs, la GPL requi�re que les versions
-modifi�es soient marqu�es comme chang�es, afin que leurs probl�mes ne
-soient pas attribu�s de fa�on erron�e aux auteurs des versions
-pr�c�dentes.
-
-Certains dispositifs sont con�us pour emp�cher l�acc�s des utilisateurs
-� l�installation ou l�ex�cution de versions modifi�es du logiciel �
-l�int�rieur de ces dispositifs, alors que les fabricants le peuvent.
-Ceci est fondamentalement incompatible avec le but de prot�ger la
-libert� des utilisateurs de modifier le logiciel. L�aspect syst�matique
-de tels abus se produit dans le secteur des produits destin�s aux
-utilisateurs individuels, ce qui est pr�cid�ment ce qui est le plus
-inacceptable. Aussi, nous avons con�u cette version de la GPL pour
-prohiber cette pratique pour ces produits. Si de tels probl�mes
-surviennent dans d�autres domaines, nous nous tenons pr�t � �tendre
-cette restriction � ces domaines dans de futures versions de la GPL,
-autant qu�il sera n�cessaire pour prot�ger la libert� des utilisateurs.
-
-Finalement, chaque programme est constamment menac� par les brevets
-logiciels. Les �tats ne devraient pas autoriser de tels brevets �
-restreindre le d�veloppement et l�utilisation de logiciels libres sur
-des ordinateurs d�usage g�n�ral ; mais dans ceux qui le font, nous
-voulons sp�cialement �viter le danger que les brevets appliqu�s � un
-programme libre puisse le rendre effectivement propri�taire. Pour
-emp�cher ceci, la GPL assure que les brevets ne peuvent �tre utilis�s
-pour rendre le programme non-libre.
-
-Les termes pr�cis et conditions concernant la copie, la distribution
-et la modification suivent.
-
-
-TERMES ET CONDITIONS
-
-
-Article 0. D�finitions.
-
-� Cette Licence � se r�f�re � la version 3 de la �GNU General Public
-License� (le texte original en anglais).
-
-� Droit d�Auteur � signifie aussi les droits du �copyright� ou voisins
-qui s�appliquent � d�autres types de travaux, tels que ceux sur les
-masques de semi-conducteurs.
-
-� Le Programme � se r�f�re � tout travail qui peut �tre sujet au Droit
-d�Auteur (�copyright�) et dont les droits d�utilisation sont conc�d�s
-en vertu de cette Licence. Chacun des Licenci�s, � qui cette Licence
-est conc�d�e, est d�sign� par � vous. � Les � Licenci�s � et les
-� Destinataires � peuvent �tre des personnes physiques ou morales
-(individus ou organisations).
-
-� Modifier � un travail signifie en obtenir une copie et adapter tout
-ou partie du travail d�une fa�on n�cessitant une autorisation d�un
-titulaire de Droit d�Auteur, autre que celle permettant d�en produire
-une copie conforme. Le travail r�sultant est appel� une � version
-modifi�e � du pr�c�dent travail, ou un travail � bas� sur � le
-pr�c�dent travail.
-
-Un � Travail Couvert � signifie soit le Programme non modifi� soit un
-travail bas� sur le Programme.
-
-� Propager � un travail signifie faire quoi que ce soit avec lui qui,
-sans permission, vous rendrait directement ou indirectement responsable
-d�un d�lit de contrefa�on suivant les lois relatives au Droit d�Auteur,
-� l�exception de son ex�cution sur un ordinateur ou de la modification
-d�une copie priv�e. La propagation inclue la copie, la distribution
-(avec ou sans modification), la mise � disposition envers le public, et
-aussi d'autres activit�s dans certains pays.
-
-� Acheminer � un travail signifie tout moyen de propagation de celui-ci
-qui permet � d�autres parties de r�aliser ou recevoir des copies. La
-simple interaction d�un utilisateur � travers un r�seau informatique,
-sans transfert effectif d�une copie, ne constitue pas un acheminement.
-
-Une interface utilisateur interactive affiche des � Notices L�gales
-Appropri�es � quand elle comprend un dispositif convenable, bien
-visible et �vident qui (1) affiche une notice appropri�e sur les droits
-d�auteur et (2) informe l�utilisateur qu�il n�y a pas de garantie pour
-le travail (sauf si des garanties ont �t� fournies hors du cadre de
-cette Licence), que les licenci�s peuvent acheminer le travail sous
-cette Licence, et comment voir une copie de cette Licence. Si
-l�interface pr�sente une liste de commandes utilisateur ou d�options,
-tel qu�un menu, un �l�ment �vident dans la liste pr�sent�e remplit ce
-crit�re.
-
-
-Article 1. Code source.
-
-Le � code source � d�un travail signifie la forme pr�f�r�e du travail
-permettant ou facilitant les modifications de celui-ci. Le � code
-objet � d�un travail signifie toute forme du travail qui n�en est pas
-le code source.
-
-Une � Interface Standard � signifie une interface qui est soit celle
-d�une norme officielle d�finie par un organisme de normalisation
-reconnu ou, dans le cas des interfaces sp�cifi�es pour un langage de
-programmation particulier, une interface largement utilis�e parmi les
-d�veloppeurs travaillant dans ce langage.
-
-Les � Biblioth�ques Syst�me � d�un travail ex�cutable incluent tout ce
-qui, en dehors du travail dans son ensemble, (a) est inclus dans la
-forme usuelle de paquetage d�un Composant Majeur mais ne fait pas
-partie de ce Composant Majeur et (b) sert seulement � permettre
-l�utilisation du travail avec ce Composant Majeur ou � impl�menter une
-Interface Standard pour laquelle une impl�mentation est disponible au
-public sous forme de code source ; un � Composant Majeur � signifie,
-dans ce contexte, un composant majeur essentiel (noyau, syst�me de
-fen�trage, etc.) du syst�me d�exploitation (le cas �ch�ant) d�un
-syst�me sur lequel le travail ex�cutable fonctionne, ou bien un
-compilateur utilis� pour produire le code objet du travail, ou un
-interpr�te de code objet utilis� pour ex�cuter celui-ci.
-
-Le � Source Correspondant � d�un travail sous forme de code objet
-signifie l�ensemble des codes sources n�cessaires pour g�n�rer,
-installer et (dans le cas d�un travail ex�cutable) ex�cuter le code
-objet et modifier le travail, y compris les scripts pour contr�ler ces
-activit�s. Cependant, cela n�inclue pas les Biblioth�ques Syst�me du
-travail, ni les outils d�usage g�n�ral ou les programmes libres
-g�n�ralement disponibles qui peuvent �tre utilis�s sans modification
-pour achever ces activit�s mais ne sont pas partie de ce travail. Par
-exemple le Source Correspondant inclut les fichiers de d�finition
-d�interfaces associ�s aux fichiers sources du travail, et le code
-source des biblioth�ques partag�es et des sous-routines li�es
-dynamiquement, pour lesquelles le travail est sp�cifiquement con�u pour
-les requ�rir via, par exemple, des communications de donn�es ou
-contr�les de flux internes entre ces sous-programmes et d�autres
-parties du travail.
-
-Le Source Correspondant n�a pas besoin d�inclure tout ce que les
-utilisateurs peuvent reg�n�rer automatiquement � partir d�autres
-parties du Source Correspondant.
-
-Le Source Correspondant pour un travail sous forme de code source est
-ce m�me travail.
-
-
-Article 2. Permissions de base.
-
-Tous les droits accord�s suivant cette Licence le sont jusqu�au terme
-des Droits d�Auteur (�copyright�) sur le Programme, et sont
-irr�vocables pourvu que les conditions �tablies soient remplies. Cette
-Licence affirme explicitement votre permission illimit�e d�ex�cuter le
-Programme non modifi�. La sortie produite par l�ex�cution d�un Travail
-Couvert n�est couverte par cette Licence que si cette sortie, �tant
-donn� leur contenu, constitue un Travail Couvert. Cette Licence
-reconnait vos propres droits d�usage raisonnable (�fair use� en
-l�gislation des �tats-Unis d�Am�rique) ou autres �quivalents, tels
-qu�ils sont pourvus par la loi applicable sur le Droit d�Auteur
-(�copyright�).
-
-Vous pouvez cr�er, ex�cuter et propager sans condition des Travaux
-Couverts que vous n�acheminez pas, aussi longtemps que votre licence
-demeure en vigueur. Vous pouvez acheminer des Travaux Couverts �
-d�autres personnes dans le seul but de leur faire r�aliser des
-modifications � votre usage exclusif, ou pour qu�ils vous fournissent
-des facilit�s vous permettant d�ex�cuter ces travaux, pourvu que vous
-vous conformiez aux termes de cette Licence lors de l�acheminement de
-tout mat�riel dont vous ne contr�lez pas le Droit d�Auteur
-(�copyright�). Ceux qui, d�s lors, r�alisent ou ex�cutent pour vous les
-Travaux Couverts ne doivent alors le faire qu�exclusivement pour votre
-propre compte, sous votre direction et votre contr�le, suivant des
-termes qui leur interdisent de r�aliser, en dehors de leurs relations
-avec vous, toute copie de votre mat�riel soumis au Droit d�Auteur.
-
-L�acheminement dans toutes les autres circonstances n�est permis que
-selon les conditions �tablies ci-dessous. La concession de
-sous-licences n�est pas autoris� ; l�article 10 rend cet usage non
-n�cessaire.
-
-
-Article 3. Protection des droits l�gaux des utilisateurs envers les
-lois anti-contournement.
-
-Aucun Travail Couvert ne doit �tre vu comme faisant partie d�une mesure
-technologique effective selon toute loi applicable remplissant les
-obligations pr�vues � l�article 11 du trait� international sur le droit
-d�auteur adopt� � l�OMPI le 20 d�cembre 1996, ou toutes lois similaires
-qui prohibent ou restreignent le contournement de telles mesures.
-
-Si vous acheminez un Travail Couvert, vous renoncez � tout pouvoir l�gal
-d�interdire le contournement des mesures technologiques dans tous les
-cas o� un tel contournement serait effectu� en exer�ant les droits
-pr�vus dans cette Licence pour ce Travail Couvert, et vous d�clarez
-rejeter toute intention de limiter l�op�ration ou la modification du
-Travail, en tant que moyens de renforcer, � l�encontre des utilisateurs
-de ce Travail, vos droits l�gaux ou ceux de tierces parties d�interdire
-le contournement des mesures technologiques.
-
-
-Article 4. Acheminement des copies conformes.
-
-Vous pouvez acheminer des copies conformes du code source du Programme
-tel que vous l�avez re�u, sur n�importe quel support, pourvu que vous
-publiiez scrupuleusement et de fa�on appropri�e sur chaque copie une
-notice de Droit d�Auteur appropri�e ; gardez intactes toutes les
-notices �tablissant que cette Licence et tous les termes additionnels non
-permissifs ajout�s en accord avec l�article 7 s�appliquent � ce code ;
-et donnez � chacun des Destinataires une copie de cette Licence en m�me
-temps que le Programme.
-
-Vous pouvez facturer � un prix quelconque, y compris gratuit, chacune
-des copies que vous acheminez, et vous pouvez offrir une protection
-additionnelle de support ou de garantie en �change d�un paiement.
-
-
-Article 5. Acheminement des versions sources modifi�es.
-
-Vous pouvez acheminer un travail bas� sur le Programme, ou bien les
-modifications pour le produire � partir du Programme, sous la forme de
-code source suivant les termes de l�article 4, pourvu que vous
-satisfassiez aussi � chacune des conditions requises suivantes :
-
-  a) Le travail doit comporter des notices �videntes �tablissant que
-     vous l�avez modifi� et donnant la date correspondante.
-
-  b) Le travail doit comporter des notices �videntes �tablissant qu�il
-     est �dit� selon cette Licence et les conditions ajout�es d�apr�s
-     l�article 7. Cette obligation vient modifier l�obligation de
-     l�article 4 de � garder intactes toutes les notices. �
-
-  c) Vous devez licencier le travail entier, comme un tout, suivant
-     cette Licence � quiconque entre en possession d�une copie. Cette
-     Licence s�appliquera en cons�quence, avec les termes additionnels
-     applicables pr�vus par l�article 7, � la totalit� du travail et
-     chacune de ses parties, ind�pendamment de la fa�on dont ils sont
-     empaquet�s. Cette licence ne donne aucune permission de licencier
-     le travail d�une autre fa�on, mais elle n�invalide pas une telle
-     permission si vous l�avez re�ue s�par�ment. 
-
-  d) Si le travail a des interfaces utilisateurs interactives, chacune
-     doit afficher les Notices L�gales Appropri�es ; cependant si le
-     Programme a des interfaces qui n�affichent pas les Notices L�gales
-     Appropri�es, votre travail n�a pas � les modifier pour qu�elles
-     les affichent. 
-
-Une compilation d�un Travail Couvert avec d�autres travaux s�par�s et
-ind�pendants, qui ne sont pas par leur nature des extensions du Travail
-Couvert, et qui ne sont pas combin�s avec lui de fa�on � former un
-programme plus large, dans ou sur un volume de stockage ou un support
-de distribution, est appel� un � aggr�gat � si la compilation et son
-Droit d�Auteur r�sultant ne sont pas utilis�s pour limiter l�acc�s ou
-les droits l�gaux des utilisateurs de la compilation en de�a de ce que
-permettent les travaux individuels. L�inclusion d�un Travail Couvert
-dans un aggr�gat ne cause pas l�application de cette Licence aux
-autres parties de l�aggr�gat.
-
-
-Article 6. Acheminement des formes non sources.
-
-Vous pouvez acheminer sous forme de code objet un Travail Couvert
-suivant les termes des articles 4 et 5, pourvu que vous acheminiez
-�galement suivant les termes de cette Licence le Source Correspondant
-lisible par une machine, d�une des fa�ons suivantes :
-
-  a) Acheminer le code objet sur, ou inclus dans, un produit physique
-     (y compris un support de distribution physique), accompagn� par le
-     Source Correspondant fix� sur un support physique durable
-     habituellement utilis� pour les �changes de logiciels.
-
-  b) Acheminer le code objet sur, ou inclus dans, un produit physique
-     (y compris un support de distribution physique), accompagn� d�une
-     offre �crite, valide pour au moins trois ann�es et valide pour
-     aussi longtemps que vous fournissez des pi�ces de rechange ou un
-     support client pour ce mod�le de produit, afin de donner �
-     quiconque poss�de le code objet soit (1) une copie du Source
-     Correspondant � tout logiciel dans ce produit qui est couvert par
-     cette Licence, sur un support physique durable habituellement
-     utilis� pour les �changes de logiciels, pour un prix non sup�rieur
-     au co�t raisonnable de la r�alisation physique de l�acheminement
-     de la source, ou soit (2) un acc�s permettant de copier le Source
-     Correspondant depuis un serveur r�seau sans frais.
-
-  c) Acheminer des copies individuelles du code objet avec une copie de
-     l�offre �crite de fournir le Source Correspondant. Cette
-     alternative est permise seulement occasionellement et non
-     commercialement, et seulement si vous avez re�u le code objet avec
-     une telle offre, en accord avec l�article 6 alin�a b.
-
-  d) Acheminer le code objet en offrant un acc�s depuis un emplacement
-     d�sign� (gratuit ou contre facturation) et offrir un acc�s
-     �quivalent au Source Correspondant de la m�me fa�on via le m�me
-     emplacement et sans facturation suppl�mentaire. Vous n�avez pas
-     besoin d�obliger les Destinataires � copier le Source
-     Correspondant en m�me temps que le code objet. Si l�emplacement
-     pour copier le code objet est un serveur r�seau, le Source
-     Correspondant peut �tre sur un serveur diff�rent (op�r� par vous
-     ou par un tiers) qui supporte des facilit�s �quivalentes de
-     copie, pourvu que vous mainteniez des directions claires �
-     proximit� du code objet indiquant o� trouver le Source
-     Correspondant. Ind�pendamment de quel serveur h�berge le Source
-     Correspondant, vous restez oblig� de vous assurer qu�il reste
-     disponible aussi longtemps que n�cessaire pour satisfaire � ces
-     obligations.
-
-  e) Acheminer le code objet en utilisant une transmission
-     d��gal-�-�gal, pourvu que vous informiez les autres participants
-     sur o� le code objet et le Source Correspondant du travail sont
-     offerts sans frais au public g�n�ral suivant l�article 6 alin�a d.
-     Une portion s�parable du code objet, dont le code source est exclu
-     du Source Correspondant en tant que Biblioth�que Syst�me, n�a pas
-     besoin d��tre inclu dans l�acheminement du travail sous forme de
-     code objet.
-
-Un � Produit Utilisateur � est soit (1) un � Produit de Consommation, �
-ce qui signifie toute propri�t� personnelle tangible normalement
-utilis�e � des fins personnelles, familiales ou relatives au foyer,
-soit (2) toute chose con�ue ou vendue pour l�incorporation dans un lieu
-d�habitation. Pour d�terminer si un produit constitue un Produit de
-Consommation, les cas ambigus sont r�solus en fonction de la
-couverture. Pour un produit particulier re�u par un utilisateur
-particulier, l�expression � normalement utilis�e � ci-avant se r�f�re
-� une utilisation typique ou l�usage commun de produits de m�me
-cat�gorie, ind�pendamment du statut de cet utilisateur particulier ou
-de la fa�on sp�cifique dont cet utilisateur particulier utilise
-effectivement ou s�attend lui-m�me ou est attendu � utiliser ce
-produit. Un produit est un Produit de Consommation ind�pendamment du
-fait que ce produit a ou n�a pas d�utilisations substantielles
-commerciales, industrielles ou hors Consommation, � moins que de telles
-utilisations repr�sentent le seul mode significatif d�utilisation du
-produit.
-
-Les � Informations d�Installation � d�un Produit Utilisateur signifient
-toutes les m�thodes, proc�dures, cl�s d�autorisation ou autres
-informations requises pour installer et ex�cuter des versions modifi�es
-d�un Travail Couvert dans ce Produit Utilisateur � partir d�une version
-modifi�e de son Source Correspondant. Les informations qui suffisent �
-assurer la continuit� de fonctionnement du code objet modifi� ne
-doivent en aucun cas �tre emp�ch�es ou interf�r�es du seul fait qu�une
-modification a �t� effectu�e.
-
-Si vous acheminez le code objet d�un Travail Couvert dans, ou avec, ou
-sp�cifiquement pour l�utilisation dans, un Produit Utilisateur et
-l�acheminement se produit en tant qu��l�ment d�une transaction dans
-laquelle le droit de possession et d�utilisation du Produit
-Utilisateur est transf�r� au Destinataire d�finitivement ou pour un
-terme fix� (ind�pendamment de la fa�on dont la transaction est
-caract�ris�e), le Source Correspondant achemin� selon cet article-ci
-doit �tre accompagn� des Informations d�Installation. Mais cette
-obligation ne s�applique pas si ni vous ni aucune tierce partie ne
-d�tient la possibilit� d�intaller un code objet modifi� sur le Produit
-Utilisateur (par exemple, le travail a �t� install� en m�moire morte).
-
-L�obligation de fournir les Informations d�Installation n�inclue pas
-celle de continuer � fournir un service de support, une garantie ou des
-mises � jour pour un travail qui a �t� modifi� ou install� par le
-Destinataire, ou pour le Produit Utilisateur dans lequel il a �t�
-modifi� ou install�. L�acc�s � un r�seau peut �tre rejet� quand la
-modification elle-m�me affecte mat�riellement et d�favorablement les
-op�rations du r�seau ou viole les r�gles et protocoles de communication
-au travers du r�seau.
-
-Le Source Correspondant achemin� et les Informations d�Installation
-fournies, en accord avec cet article, doivent �tre dans un format
-publiquement document� (et dont une impl�mentation est disponible
-aupr�s du public sous forme de code source) et ne doit n�cessiter
-aucune cl� ou mot de passe sp�cial pour le d�paquetage, la lecture ou
-la copie.
-
-
-Article 7. Termes additionnels.
-
-Les � permissions additionelles � d�signent les termes qui
-suppl�mentent ceux de cette Licence en �mettant des exceptions � l�une
-ou plusieurs de ses conditions. Les permissions additionnelles qui
-sont applicables au Programme entier doivent �tre trait�es comme si
-elles �taient incluent dans cette Licence, dans les limites de leur
-validit� suivant la loi applicable. Si des permissions additionnelles
-s�appliquent seulement � une partie du Programme, cette partie peut
-�tre utilis�e s�par�ment suivant ces permissions, mais le Programme
-tout entier reste gouvern� par cette Licence sans regard aux
-permissions additionelles.
-
-Quand vous acheminez une copie d�un Travail Couvert, vous pouvez �
-votre convenance �ter toute permission additionelle de cette copie, ou
-de n�importe quelle partie de celui-ci. (Des permissions
-additionnelles peuvent �tre r�dig�es de fa�on � requ�rir leur propre
-suppression dans certains cas o� vous modifiez le travail.) Vous
-pouvez placer les permissions additionnelles sur le mat�riel achemin�,
-ajout�es par vous � un Travail Couvert pour lequel vous avez ou pouvez
-donner les permissions de Droit d�Auteur (�copyright�) appropri�es.
-
-Nonobstant toute autre clause de cette Licence, pour tout constituant
-que vous ajoutez � un Travail Couvert, vous pouvez (si autoris� par les
-titulaires de Droit d�Auteur pour ce constituant) suppl�menter les
-termes de cette Licence avec des termes :
-
-  a) qui rejettent la garantie ou limitent la responsabilit� de fa�on
-     diff�rente des termes des articles 15 et 16 de cette Licence ; ou
-
-  b) qui requi�rent la pr�servation de notices l�gales raisonnables
-     sp�cifi�es ou les attributions d�auteur dans ce constituant ou
-     dans les Notices L�gales Appropri�es affich�es par les travaux qui
-     le contiennent ; ou
-
-  c) qui prohibent la repr�sentation incorrecte de l�origine de ce
-     constituant, ou qui requi�rent que les versions modifi�es d�un tel
-     constituant soit marqu�es par des moyens raisonnables comme
-     diff�rentes de la version originale ; ou
-
-  d) qui limitent l�usage � but publicitaire des noms des conc�dants de
-     licence et des auteurs du constituant ; ou
-
-  e) qui refusent � accorder des droits selon la l�gislation relative
-     aux marques commerciales, pour l�utilisation dans des noms
-     commerciaux, marques commerciales ou marques de services ; ou
-
-  f) qui requi�rent l�indemnisation des conc�dants de licences et
-     auteurs du constituant par quiconque achemine ce constituant (ou
-     des versions modifi�es de celui-ci) en assumant contractuellement
-     la responsabilit� envers le Destinataire, pour toute
-     responsabilit� que ces engagements contractuels imposent
-     directement � ces octroyants de licences et auteurs.
-
-Tous les autres termes additionnels non permissifs sont consid�r�s
-comme des � restrictions avanc�es � dans le sens de l�article 10. Si le
-Programme tel que vous l�avez re�u, ou toute partie de celui-ci,
-contient une notice �tablissant qu�il est gouvern� par cette Licence en
-m�me temps qu�un terme qui est une restriction avanc�e, vous pouvez
-�ter ce terme. Si un document de licence contient une restriction
-avanc�e mais permet la reconcession de licence ou l�acheminement
-suivant cette Licence, vous pouvez ajouter un Travail Couvert
-constituant gouvern� par les termes de ce document de licence, pourvu
-que la restriction avanc�e ne survit pas � un telle cession de licence
-ou acheminement.
-
-Si vous ajoutez des termes � un Travail Couvert en accord avec cet
-article, vous devez placer, dans les fichiers sources appropri�s, une
-d�claration des termes additionnels qui s�appliquent � ces fichiers, ou
-une notice indiquant o� trouver les termes applicables.
-
-Les termes additionnels, qu�ils soient permissifs ou non permissifs,
-peuvent �tre �tablis sous la forme d�une licence �crite s�par�ment, ou
-�tablis comme des exceptions ; les obligations ci-dessus s�appliquent
-dans chacun de ces cas.
-
-
-Article 8. Terminaison.
-
-Vous ne pouvez ni propager ni modifier un Travail Couvert autrement que
-suivant les termes de cette Licence. Toute autre tentative de le
-propager ou le modifier est nulle et terminera automatiquement vos
-droits selon cette Licence (y compris toute licence de brevet accord�e
-selon le troisi�me paragraphe de l�article 11).
-
-Cependant, si vous cessez toute violation de cette Licence, alors votre
-licence depuis un titulaire de Droit d�Auteur (�copyright�) est
-r�instaur�e (a) � titre provisoire � moins que et jusqu�� ce que le
-titulaire de Droit d�Auteur termine finalement et explicitement votre
-licence, et (b) de fa�on permanente si le titulaire de Droit d�Auteur
-ne parvient pas � vous notifier de la violation par quelque moyen
-raisonnable dans les soixante (60) jours apr�s la cessation.
-
-De plus, votre licence depuis un titulaire particulier de Droit
-d�Auteur est r�instaur�e de fa�on permanente si ce titulaire vous
-notifie de la violation par quelque moyen raisonnable, c�est la
-premi�re fois que vous avez re�u une notification deviolation de cette
-Licence (pour un travail quelconque) depuis ce titulaire de Droit
-d�Auteur, et vous r�solvez la violation dans les trente (30) jours qui
-suivent votre r�ception de la notification.
-
-La terminaison de vos droits suivant cette section ne terminera pas les
-licences des parties qui ont re�u des copies ou droits de votre part
-suivant cette Licence. Si vos droits ont �t� termin�s et non
-r�instaur�s de fa�on permanente, vous n��tes plus qualifi� � recevoir
-de nouvelles licences pour les m�mes constituants selon l�article 10.
-
-
-Article 9. Acceptation non requise pour obtenir des copies.
-
-Vous n��tes pas oblig� d�accepter cette licence afin de recevoir ou
-ex�cuter une copie du Programme. La propagation asservie d�un Travail
-Couvert qui se produit simplement en cons�quence d�une transmission
-d��gal-�-�gal pour recevoir une copie ne n�cessite pas l�acceptation.
-Cependant, rien d�autre que cette Licence ne vous accorde la
-permission de propager ou modifier un quelconque Travail Couvert. Ces
-actions enfreignent le Droit d�Auteur si vous n�acceptez pas cette
-Licence. Par cons�quent, en modifiant ou propageant un Travail Couvert,
-vous indiquez votre acceptation de cette Licence pour agir ainsi.
-
-
-Article 10. Cession automatique de Licence aux Destinataires et
-interm�diaires.
-
-Chaque fois que vous acheminez un Travail Couvert, le Destinataire
-re�oit automatiquement une licence depuis les conc�dants originaux,
-pour ex�cuter, modifier et propager ce travail, suivant les termes de
-cette Licence. Vous n��tes pas responsable du renforcement de la
-conformation des tierces parties avec cette Licence.
-
-Une � transaction d�entit� � d�signe une transaction qui transf�re le
-contr�le d�une organisation, ou de substantiellement tous ses actifs,
-ou la subdivision d�une organisation, ou la fusion de plusieurs
-organisations. Si la propagation d�un Travail Couvert r�sulte d�une
-transaction d�entit�, chaque partie � cette transaction qui re�oit une
-copie du travail re�oit aussi les licences pour le travail que le
-pr�d�cesseur int�ress� � cette partie avait ou pourrait donner selon le
-paragraphe pr�c�dent, plus un droit de possession du Source
-Correspondant de ce travail depuis le pr�d�cesseur int�ress� si ce
-pr�d�cesseur en dispose ou peut l�obtenir par des efforts raisonnables.
-
-Vous ne pouvez imposer aucune restriction avanc�e dans l�exercice des
-droits accord�s ou affirm�s selon cette Licence. Par exemple, vous ne
-pouvez imposer aucun paiement pour la licence, aucune royaltie, ni
-aucune autre charge pour l�exercice des droits accord�s selon cette
-Licence ; et vous ne pouvez amorcer aucun litige judiciaire (y compris
-une r�clamation crois�e ou contre-r�clamation dans un proc�s) sur
-l�all�gation qu�une revendication de brevet est enfreinte par la
-r�alisation, l�utilisation, la vente, l�offre de vente, ou
-l�importation du Programme ou d�une quelconque portion de celui-ci.
-
-
-Article 11. Brevets.
-
-Un � contributeur � est un titulaire de Droit d�Auteur (�copyright�)
-qui autorise l�utilisation selon cette Licence du Programme ou du
-travail sur lequel le Programme est bas�. Le travail ainsi soumis �
-licence est appel� la � version contributive � de ce contributeur.
-
-Les � revendications de brevet essentielles � sont toutes les
-revendications de brevets d�tenues ou contr�l�es par le contributeur,
-qu�elles soient d�j� acquises par lui ou acquises subs�quemment, qui
-pourraient �tre enfreintes de quelque mani�re, permises par cette
-Licence, sur la r�alisation, l�utilisation ou la vente de la version
-contributive de celui-ci. Aux fins de cette d�finition, le � contr�le �
-inclue le droit de conc�der des sous-licences de brevets d�une mani�re
-consistante, n�cessaire et suffisante, avec les obligations de cette
-Licence.
-
-Chaque contributeur vous accorde une licence de brevet non exclusive,
-mondiale et libre de toute royaltie, selon les revendications de brevet
-essentielles, pour r�aliser, utiliser, vendre, offrir � la vente,
-importer et autrement ex�cuter, modifier et propager les contenus de sa
-version contributive.
-
-Dans les trois paragraphes suivants, une � licence de brevet � d�signe
-tous les accords ou engagements exprim�s, quel que soit le nom que vous
-lui donnez, de ne pas mettre en vigueur un brevet (telle qu�une
-permission explicite pour mettre en pratique un brevet, ou un accord
-pour ne pas poursuivre un Destinataire pour cause de violation de
-brevet). � Accorder � une telle licence de brevet � une partie signifie
-conclure un tel accord ou engagement � ne pas faire appliquer le brevet
-� cette partie.
-
-Si vous acheminez un Travail Couvert, d�pendant en connaissance d�une
-licence de brevet, et si le Source Correspondant du travail n�est pas
-disponible � quiconque copie, sans frais et suivant les termes de cette
-Licence, � travers un serveur r�seau publiquement acessible ou tout
-autre moyen imm�diatement accessible, alors vous devez soit (1) rendre
-la Source Correspondante ainsi disponible, soit (2) vous engager � vous
-priver pour vous-m�me du b�n�fice de la licence de brevet pour ce
-travail particulier, soit (3) vous engager, d�une fa�on consistante
-avec les obligations de cette Licence, � �tendre la licence de brevet
-aux Destinataires de ce travail. � D�pendant en connaissance � signifie
-que vous avez effectivement connaissance que, selon la licence de
-brevet, votre acheminement du Travail Couvert dans un pays, ou
-l�utilisation du Travail Couvert par votre Destinataire dans un pays,
-infreindrait un ou plusieurs brevets identifiables dans ce pays o� vous
-avez des raisons de penser qu�ils sont valides.
-
-Si, conform�ment � ou en liaison avec une m�me transaction ou un m�me
-arrangement, vous acheminez, ou propagez en procurant un acheminement
-de, un Travail Couvert et accordez une licence de brevet � l�une des
-parties recevant le Travail Couvert pour lui permettre d�utiliser,
-propager, modifier ou acheminer une copie sp�cifique du Travail
-Couvert, alors votre accord est automatiquement �tendu � tous les
-Destinataires du Travail Couvert et des travaux bas�s sur celui-ci.
-
-Une licence de brevet est � discriminatoire � si, dans le champ de sa
-couverture, elle n�inclut pas un ou plusieurs des droits qui sont
-sp�cifiquement accord�s selon cette Licence, ou en prohibe l�exercice,
-ou est conditionn�e par le non-exercice d�un ou plusieurs de ces
-droits. Vous ne pouvez pas acheminer un Travail Couvert si vous �tes
-partie � un arrangement selon lequel une partie tierce exer�ant son
-activit� dans la distribution de logiciels et � laquelle vous effectuez
-un paiement fond� sur l��tendue de votre activit� d�acheminement du
-travail, et selon lequel la partie tierce accorde, � une quelconque
-partie qui recevrait depuis vous le Travail Couvert, une licence de
-brevet discriminatoire (a) en relation avec les copies du Travail
-Couvert achemin�es par vous (ou les copies r�alis�es � partir de ces
-copies), ou (b) avant tout destin�e et en relation avec des produits
-sp�cifiques ou compilations contenant le Travail Couvert, � moins que
-vous ayez conclu cet arrangement ou que la licence de brevet ait �t�
-accord�e avant le 28 mars 2007.
-
-Rien dans cette Licence ne devrait �tre interpr�t� comme devant exclure
-ou limiter toute licence implicite ou d�autres moyens de d�fense � une
-infraction qui vous seraient autrement disponible selon la loi
-applicable relative aux brevets.
-
-
-Article 12. Non abandon de la libert� des autres.
-
-Si des conditions vous sont impos�es (que ce soit par d�cision
-judiciaire, par un accord ou autrement) qui contredisent les conditions
-de cette Licence, elles ne vous excusent pas des conditions de cette
-Licence. Si vous ne pouvez pas acheminer un Travail Couvert de fa�on �
-satisfaire simult�n�ment vos obligations suivant cette Licence et
-toutes autres obligations pertinentes, alors en cons�quence vous ne
-pouvez pas du tout l�acheminer. Par exemple, si vous avez un accord sur
-des termes qui vous obligent � collecter pour le r�acheminement des
-royalties depuis ceux � qui vous acheminez le Programme, la seule fa�on
-qui puisse vous permettre de satisfaire � la fois � ces termes et ceux
-de cette Licence sera de vous abstenir enti�rement d�acheminer le
+This is a translation of the GNU General Public License (GPL) into French. This translation
+is distributed in the hope that it will facilitate understanding, but it is not an official or legally
+approved translation.
+The Free Software Foundation (FSF) is not the publisher of this translation and has not
+approved it as a legal substitute for the authentic GNU General Public License. The
+translation has not been reviewed carefully by lawyers, and therefore the translator cannot be
+sure that it exactly represents the legal meaning of the authentic GNU General Public License
+published in English. This translation does not legally state the terms and conditions of use of
+any Program licenced under GNU GPL â only the original English text of the GNU LGPL
+does that. If you wish to be sure whether your planned activities are permitted by the GNU
+General Public License, please refer to its sole authentic English version.
+The FSF strongly urges you not to use this translation as the official distribution terms for
+your programs; instead, please use the authentic English version published by the FSF. If you
+choose to convey this translation along with a Program covered by the GPL Licence, this
+does not remove your obligation to convey at the same time a copy of the authentic GNU
+GPL License in English, and you must keep in this translation this important warning in
+English and its equivalent in French above.
+PrÃ©ambule
+La GNU General Public License est une licence libre et copyleft destinÃ©e aux logiciels et
+autre type de crÃ©ations.
+Les licences de la plupart des logiciels et autres crÃ©ations utilitaires sont conÃ§ues pour Ã´ter
+votre libertÃ© de partager et modifier ces crÃ©ations. Par opposition, la GNU General Public
+License a pour but de garantir votre libertÃ© de partager et modifier toutes les versions dâun
+programme â afin dâassurer quâil demeurera libre pour tous ses utilisateurs. Nous, la Free
+Software Foundation, utilisons la GNU General Public License pour la plupart de nos
+logiciels ; elle sâapplique aussi Ã  toute autre crÃ©ation divulguÃ©e de cette faÃ§on par ses auteurs.
+Vous pouvez Ã©galement l'appliquer Ã  vos programmes.
+Lorsque nous parlons de logiciel libre, nous nous rÃ©fÃ©rons Ã  la libertÃ©, pas au prix. Nos
+Licences Publiques GÃ©nÃ©rales sont conÃ§ues pour garantir que vous ayez la libertÃ© de
+distribuer des exemplaires de logiciels libres (Ã  titre onÃ©reux si vous le souhaitez), que vous
+receviez le code source ou puissiez l'obtenir si vous le souhaitez, que vous puissiez modifier
+ce logiciel ou en utiliser toute partie dans de nouveaux logiciels libres, et que vous sachiez
+que vous avez le droit de faire tout ceci.
+Pour protÃ©ger vos droits, nous avons besoin dâempÃªcher que dâautres vous en privent ou vous
+demandent de leur abandonner. En consÃ©quence, vous avez certains devoirs si vous distribuez
+des exemplaires du logiciel ou si vous le modifiez : devoirs de respecter la libertÃ© des autres.
+Par exemple, si vous distribuez des exemplaires dâun tel programme, que ce soit Ã  titre gratuit
+ou onÃ©reux, vous devez transfÃ©rer aux destinataires les mÃªmes libertÃ©s que celles reÃ§ues.
+Vous devez vous assurer quâeux aussi reÃ§oivent ou peuvent recevoir le code source. Et vous
+devez leur montrer ces stipulations afin quâils connaissent leurs droits.
+Les dÃ©veloppeurs qui utilisent la GNU GPL protÃ¨gent vos droits en deux Ã©tapes : (1) ils
+revendiquent leurs droits dâauteur sur le logiciel, et (2) vous offrent cette Licence qui vous
+donne la permission lÃ©gale de le copier, le distribuer et/ou le modifier.
+Pour la protection des dÃ©veloppeurs et des auteurs, la GPL stipule clairement qu'aucune
+garantie n'accompagne ce logiciel libre. Pour le bien des utilisateurs et des auteurs, la GPL
+requiert que les versions modifiÃ©es soient marquÃ©es comme telles, afin que leurs problÃ¨mes
+ne soient pas attribuÃ©s de faÃ§on erronÃ©e aux auteurs des versions prÃ©cÃ©dentes.
+Certains dispositifs sont conÃ§us pour empÃªcher lâaccÃ¨s des utilisateurs aux fins dâinstallation
+ou dâexÃ©cution de versions modifiÃ©es du logiciel qu'ils contiennent, bien que le fabricant le
+puisse. Ceci est fondamentalement incompatible avec l'objectif de protÃ©ger la libertÃ© des
+utilisateurs de modifier le logiciel. Le caractÃ¨re systÃ©matique de tels abus se manifeste dans
+le secteur des produits destinÃ©s Ã  l'utilisation par les particuliers, prÃ©cisÃ©ment le secteur oÃ¹
+cette mÃ©thode est la plus inacceptable. Par consÃ©quent, nous avons conÃ§u cette version de la
+GPL afin de prohiber la pratique pour ces produits. Si de tels problÃ¨mes survenaient de faÃ§on
+significative dans dâautres domaines, nous nous tenons prÃªts Ã  Ã©tendre cette restriction Ã  ces
+domaines dans de futures versions de la GPL, autant quâil sera nÃ©cessaire pour protÃ©ger la
+libertÃ© des utilisateurs.
+Enfin, chaque programme est constamment menacÃ© par les brevets logiciels. Les Ãtats ne
+devraient pas autoriser les brevets Ã  restreindre le dÃ©veloppement et lâutilisation des logiciels
+sur des ordinateurs Ã  usage gÃ©nÃ©ral ; mais au sein de ceux qui l'autorisent, nous souhaitons
+Ã©viter le danger particulier que les brevets appliquÃ©s Ã  un programme libre puissent le rendre
+en rÃ©alitÃ© propriÃ©taire. Pour empÃªcher ceci, la GPL assure que les brevets ne puissent Ãªtre
+utilisÃ©s pour rendre le programme non-libre.
+Les stipulations prÃ©cises relatives Ã  la copie, la distribution et la modification suivent.
+STIPULATIONS
+Article 0. DÃ©finitions.
+Â« Cette Licence Â» se rÃ©fÃ¨re Ã  la version 3 de la Licence Publique GÃ©nÃ©rale GNU.
+Â« Droit dâAuteur Â» signifie aussi toute lÃ©gislation similaire Ã  celle du droit d'auteur qui
+sâapplique Ã  dâautres types de crÃ©ations, tels que ceux sur les topographies de semi-
+conducteurs.
+Â« Le Programme Â» se rÃ©fÃ¨re Ã  toute crÃ©ation protÃ©geable par le droit dâauteur licenciÃ©e aux
+termes de cette Licence. Chaque licenciÃ© est dÃ©signÃ© par Â« vous. Â» Les Â« LicenciÃ©s Â» et les
+Â« destinataires Â» peuvent Ãªtre des personnes physiques ou morales.
+Â« modifier Â» une crÃ©ation signifie copier ou adapter tout ou partie de la crÃ©ation dâune faÃ§on
+nÃ©cessitant l'autorisation du titulaire du Droit dâAuteur, en dehors de la rÃ©alisation d'une
+copie conforme. La crÃ©ation rÃ©sultante est appelÃ©e une Â« version modifiÃ©e Â» de la prÃ©cÃ©dente
+crÃ©ation, ou une crÃ©ation Â« basÃ©e sur Â» la prÃ©cÃ©dente crÃ©ation.
+Une Â« crÃ©ation rÃ©gie Â» dÃ©signe soit le Programme non modifiÃ©, soit une crÃ©ation basÃ©e sur le
 Programme.
-
-
-Article 13. Utilisation avec la Licence G�n�rale Publique Affero GNU.
-
-Nonobstant toute autre clause de cette Licence, vous avez la permission
-de lier ou combiner tout Travail Couvert avec un travail plac� sous la
-version 3 de la Licence G�n�rale Publique GNU Affero (�GNU Affero
-General Public License�) en un seul travail combin�, et d�acheminer le
-travail r�sultant. Les termes de cette Licence continueront �
-s�appliquer � la partie formant un Travail Couvert, mais les
-obligations sp�ciales de la Licence G�n�rale Publique GNU Affero,
-article 13, concernant l�interaction � travers un r�seau s�appliqueront
-� la combinaison en tant que telle.
-
-
-Article 14. Versions r�vis�es de cette License.
-
-La Free Software Foundation peut publier des versions r�vis�es et/ou
-nouvelles de la Licence Publique G�n�rale GNU (�GNU General Public
-License�) de temps en temps. De telles version nouvelles resteront
-similaires dans l�esprit avec la pr�sente version, mais peuvent
-diff�rer dans le d�tail afin de traiter de nouveaux probl�mes ou
-pr�occupations.
-
-Chaque version re�oit un num�ro de version distinctif. Si le Programme
-indique qu�une version sp�cifique de la Licence Publique G�n�rale GNU
-� ou toute version ult�rieure � (�or any later version�) s�applique �
-celui-ci, vous avez le choix de suivre soit les termes et conditions de
-cette version num�rot�e, soit ceux de n�importe quelle version publi�e
-ult�rieurement par la Free Software Foundation. Si le Programme
-n�indique pas une version sp�cifique de la Licence Publique G�n�rale
-GNU, vous pouvez choisir l�une quelconque des versions qui ont �t�
-publi�es par la Free Software Foundation.
-
-Si le Programme sp�cifie qu�un interm�diaire peut d�cider quelles
-versions futures de la Licence G�n�rale Publique GNU peut �tre
-utilis�e, la d�claration publique d�acceptation d�une version par cet
-interm�diaire vous autorise � choisir cette version pour le Programme.
-
-Des versions ult�rieures de la licence peuvent vous donner des
-permissions additionelles ou diff�rentes. Cependant aucune obligation
-additionelle n�est impos�e � l�un des auteurs ou titulaires de Droit
-d�Auteur du fait de votre choix de suivre une version ult�rieure.
-
-
-Article 15. D�claration d�absence de garantie.
-
-IL N�Y A AUCUNE GARANTIE POUR LE PROGRAMME, DANS LES LIMITES PERMISES
-PAR LA LOI APPLICABLE. � MOINS QUE CELA NE SOIT �TABLI DIFF�REMMENT PAR
-�CRIT, LES PROPRI�TAIRES DE DROITS ET/OU LES AUTRES PARTIES FOURNISSENT
-LE PROGRAMME � EN L��TAT � SANS GARANTIE D�AUCUNE SORTE, QU�ELLE SOIT
-EXPRIM�E OU IMPLICITE, CECI COMPRENANT, SANS SE LIMITER � CELLES-CI,
-LES GARANTIES IMPLICITES DE COMMERCIALISABILIT� ET D�AD�QUATION � UN
-OBJECTIF PARTICULIER. VOUS ASSUMEZ LE RISQUE ENTIER CONCERNANT LA
-QUALIT� ET LES PERFORMANCES DU PROGRAMME. DANS L��VENTUALIT� O� LE
-PROGRAMME S�AV�RERAIT D�FECTUEUX, VOUS ASSUMEZ LES CO�TS DE TOUS LES
-SERVICES, R�PARATIONS OU CORRECTIONS N�CESSAIRES.
-
-
-Article 16. Limitation de responsabilit�.
-
-EN AUCUNE AUTRE CIRCONSTANCE QUE CELLES REQUISES PAR LA LOI APPLICABLE
-OU ACCORD�ES PAR �CRIT, UN TITULAIRE DE DROITS SUR LE PROGRAMME, OU
-TOUT AUTRE PARTIE QUI MODIFIE OU ACHEMINE LE PROGRAMME COMME PERMIS
-CI-DESSUS, NE PEUT �TRE TENU POUR RESPONSABLE ENVERS VOUS POUR LES
-DOMMAGES, INCLUANT TOUT DOMMAGE G�N�RAL, SP�CIAL, ACCIDENTEL OU INDUIT
-SURVENANT PAR SUITE DE L�UTILISATION OU DE L�INCAPACIT� D�UTILISER LE
-PROGRAMME (Y COMPRIS, SANS SE LIMITER � CELLES-CI, LA PERTE DE DONN�ES
-OU L�INEXACTITUDE DES DONN�ES RETOURN�ES OU LES PERTES SUBIES PAR VOUS
-OU DES PARTIES TIERCES OU L�INCAPACIT� DU PROGRAMME � FONCTIONNER AVEC
-TOUT AUTRE PROGRAMME), M�ME SI UN TEL TITULAIRE OU TOUTE AUTRE PARTIE
-A �T� AVIS� DE LA POSSIBILIT� DE TELS DOMMAGES.
-
-
-Article 17. Interpr�tation des sections 15 et 16.
-
-Si la d�claration d�absence de garantie et la limitation de
-responsabilit� fournies ci-dessus ne peuvent prendre effet localement
-selon leurs termes, les cours de justice qui les examinent doivent
-appliquer la l�gislation locale qui approche au plus pr�s possible une
-lev�e absolue de toute responsabilit� civile li�e au Programme, � moins
-qu�une garantie ou assumation de responsabilit� accompagne une copie du
-Programme en �change d�un paiement.
-
-
-FIN DES TERMES ET CONDITIONS.
-
-_______________________________________________________________________
-
-
-Comment appliquer ces termes � vos nouveaux programmes
-
-Si vous d�veloppez un nouveau programme et voulez qu�il soit le plus
-possible utilisable par le public, la meilleure fa�on d�y parvenir et
-d�en faire un logiciel libre que chacun peut redistribuer et changer
-suivant ces termes-ci.
-
-Pour appliquer ces termes, attachez les notices suivantes au programme.
-Il est plus s�r de les attacher au d�but de chacun des fichiers sources
-afin de transporter de fa�on la plus effective possible l�exclusion de
-garantie ; et chaque fichier devrait comporter au moins la ligne de
-r�servation de droit (�copyright�) et une indication permettant de savoir
-o� la notice compl�te peut �tre trouv�e :
-
-  <une ligne donnant le nom du programme et une br�ve id�e de ce qu�il fait.>
-  Copyright (C) <ann�e> <nom de l�auteur> � Tous droits r�serv�s.
-  
-  Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le
-  modifier suivant les termes de la �GNU General Public License� telle que
-  publi�e par la Free Software Foundation : soit la version 3 de cette
-  licence, soit (� votre gr�) toute version ult�rieure.
-  
-  Ce programme est distribu� dans l�espoir qu�il vous sera utile, mais SANS
-  AUCUNE GARANTIE : sans m�me la garantie implicite de COMMERCIALISABILIT�
-  ni d�AD�QUATION � UN OBJECTIF PARTICULIER. Consultez la Licence G�n�rale
-  Publique GNU pour plus de d�tails.
-  
-  Vous devriez avoir re�u une copie de la Licence G�n�rale Publique GNU avec
-  ce programme ; si ce n�est pas le cas, consultez :
-  <http://www.gnu.org/licenses/>.
-
-Ajoutez �galement les informations permettant de vous contacter par
-courrier �lectronique ou postal.
-
-Si le programme produit une interaction sur un terminal, faites lui
-afficher une courte notice comme celle-ci lors de son d�marrage en mode
-interactif :
-
-  <programme> Copyright (C) <ann�e> <nom de l�auteur>
-  Ce programme vient SANS ABSOLUMENT AUCUNE GARANTIE ; taper �affiche g� pour
-  les d�tails. Ceci est un logiciel libre et vous �tes invit� � le redistribuer
-  suivant certaines conditions ; taper �affiche c� pour les d�tails.
-
-Les commandes hypoth�tiques �affiche g� and �affiche c� devrait
-afficher les parties appropri�es de la Licence G�n�rale Publique. Bien
-s�r, les commandes de votre programme peuvent �tre diff�rentes ; pour
-une interface graphique, vous pourriez utiliser une � bo�te � propos. �
-
-Vous devriez �galement obtenir de votre employeur (si vous travaillez
-en tant que programmeur) ou de votre �cole un � renoncement aux droits
-de propri�t� � pour ce programme, si n�cessaire. Pour plus
-d�informations � ce sujet, et comment appliquer la GPL GNU, consultez
-<http://www.gnu.org/licenses/>.
-
-La Licence G�n�rale Publique GNU ne permet pas d�incorporer votre
-programme dans des programmes propri�taires. Si votre programme est une
-biblioth�que de sous-routines, vous pourriez consid�rer qu�il serait
-plus utile de permettre de lier des applications propri�taires avec la
-biblioth�que. Si c�est ce que vous voulez faire, utilisez la Licence
-G�n�rale Publique Limit�e GNU au lieu de cette Licence ; mais d�abord,
-veuillez lire <http://www.gnu.org/philosophy/why-not-lgpl.html>.
-
-_______________________________________________________________________
+Â« Propager Â» une crÃ©ation dÃ©signe faire quoi que ce soit avec celle-ci qui, sans autorisation,
+vous rendrait directement ou secondairement responsable du fait de la violation dâune
+disposition de la loi sur le droit d'auteur applicable, Ã  lâexception de son exÃ©cution sur un
+ordinateur ou de la modification dâune copie personnelle . La propagation inclut la copie, la
+distribution (avec ou sans modification), la mise Ã  disposition du public et dans certains pays
+d'autres activitÃ©s Ã©galement.
+Â« Transmettre Â» une crÃ©ation dÃ©signe tout type de propagation qui permet Ã  d'autres parties de
+rÃ©aliser ou recevoir des exemplaires. La simple interaction avec un utilisateur via un rÃ©seau
+informatique, sans transfert dâun exemplaire, nâest pas une transmission.
+Une interface utilisateur interactive affiche des Â« Mentions LÃ©gales AppropriÃ©es Â» dans la
+mesure oÃ¹ elle inclut un dispositif pratique et visible de faÃ§on proÃ©minente qui (1) affiche
+une mention de droit dâauteur appropriÃ©e et (2) indique Ã  lâutilisateur quâil nây a aucune
+garantie portant sur la crÃ©ation (sauf si des garanties sont accordÃ©es ), que les licenciÃ©s
+peuvent transmettre la crÃ©ation sous cette Licence, et comment voir une copie de cette
+Licence. Si lâinterface intÃ¨gre une liste de commandes ou dâoptions utilisateur, tel quâun
+menu, un Ã©lÃ©ment proÃ©minent dans la liste remplit ce critÃ¨re.
+1. Code source.
+Le Â« code source Â» dâune crÃ©ation dÃ©signe la forme de la crÃ©ation prÃ©fÃ©rÃ©e pour faire des
+modifications sur celle-ci. Le Â« Code objet Â» dÃ©signe toute forme de la crÃ©ation qui n'est pas
+le code source .
+Une Â« Interface Standard Â» dÃ©signe une interface qui est soit une norme officielle dÃ©finie par
+un organisme de normalisation reconnu soit, dans le cas d'interfaces spÃ©cifiÃ©es pour un
+langage de programmation particulier, une interface largement utilisÃ©e parmi les
+dÃ©veloppeurs travaillant dans ce langage.
+Les Â« BibliothÃ¨ques SystÃ¨me Â» dâune crÃ©ation exÃ©cutable incluent tout ce qui, en dehors de la
+crÃ©ation dans son ensemble, (a) est compris dans la forme usuelle de distribution dâun
+Composant Majeur mais ne fait pas partie de ce Composant Majeur et (b) sert seulement Ã 
+permettre lâutilisation de la crÃ©ation avec ce Composant Majeur ou Ã  implÃ©menter une
+Interface Standard pour laquelle une mise en oeuvre est disponible au public sous forme de
+code source. Un Â« Composant Majeur Â» dÃ©signe, dans ce contexte, un composant majeur
+essentiel (noyau, gestionnaire de fenÃªtres , etc.) du systÃ¨me dâexploitation propre (le cas
+Ã©chÃ©ant) sur lequel la crÃ©ation exÃ©cutable fonctionne, ou un compilateur utilisÃ© pour produire
+la crÃ©ation, ou un interprÃ©teur de code objet utilisÃ© pour lâexÃ©cuter.
+La Â« Source Correspondante Â» dâune crÃ©ation sous forme de code objet dÃ©signe tout le code
+source nÃ©cessaire pour gÃ©nÃ©rer, installer et (pour une crÃ©ation exÃ©cutable) exÃ©cuter le code
+objet et modifier la crÃ©ation, y compris les scripts pour contrÃ´ler ces activitÃ©s. Cependant,
+cela nâinclut pas les BibliothÃ¨ques SystÃ¨mes de la crÃ©ation, ni les outils dâusage gÃ©nÃ©ral ou
+les programmes libres gÃ©nÃ©ralement disponibles qui peuvent Ãªtre utilisÃ©s sans modification
+pour rÃ©aliser ces activitÃ©s, mais ne sont pas partie de cette crÃ©ation. Par exemple, la Source
+Correspondante inclut les fichiers de dÃ©finition dâinterfaces associÃ©s aux fichiers sources de
+la crÃ©ation, et le code source des bibliothÃ¨ques partagÃ©es et des sous-programmes liÃ©s
+dynamiquement, dÃ¨s lors que la crÃ©ation est spÃ©cialement conÃ§ue pour les requÃ©rir via, par
+exemple, des communications de donnÃ©es ou contrÃ´les de flux internes entre ces sous-
+programmes et dâautres parties de la crÃ©ation.
+La Source Correspondante nâa pas besoin dâinclure tout ce que les utilisateurs peuvent
+rÃ©gÃ©nÃ©rer automatiquement Ã  partir dâautres parties de la Source Correspondante.
+La Source Correspondante pour une crÃ©ation sous forme de code source est cette mÃªme
+crÃ©ation.
+2. Permissions de Base.
+Tous les droits accordÃ©s par cette Licence sont concÃ©dÃ©s pour la durÃ©e des Droits dâAuteur
+sur le Programme, et sont irrÃ©vocables pourvu que les conditions Ã©noncÃ©es soient remplies.
+Cette Licence vous permet explicitement et de maniÃ¨re illimitÃ©e dâexÃ©cuter le Programme
+non modifiÃ©. La restitution de lâexÃ©cution dâune crÃ©ation rÃ©gie est rÃ©gie par cette Licence,
+seulement si cette restitution, Ã©tant donnÃ© son contenu, constitue une crÃ©ation rÃ©gie. Cette
+Licence reconnaÃ®t vos droits de âfair useâ ou autres droits Ã©quivalents, tels que prÃ©vus par la
+lÃ©gislation sur le Droit dâAuteur.
+Vous pouvez crÃ©er, exÃ©cuter et propager sans condition des crÃ©ations rÃ©gies que vous ne
+transmettez pas, aussi longtemps que votre licence demeure par ailleurs en vigueur. Vous
+pouvez transmettre des crÃ©ations rÃ©gies Ã  dâautres personnes dans le seul but de leur faire
+rÃ©aliser des modifications Ã  votre usage exclusif, ou pour quâils vous fournissent des
+infrastructures vous permettant dâexÃ©cuter ces crÃ©ations, pourvu que vous vous conformiez
+aux termes de cette Licence lors de la transmission de tout Ã©lÃ©ment dont vous ne contrÃ´lez
+pas le droit dâauteur. Ceux qui, dÃ¨s lors, rÃ©alisent ou exÃ©cutent pour vous les crÃ©ations rÃ©gies
+doivent le faire exclusivement pour votre propre compte, sous votre direction et votre
+contrÃ´le, selon des termes qui leur interdisent de rÃ©aliser, en dehors de leurs relations avec
+vous, toute copie de vos Ã©lÃ©ments soumis au droit dâauteur.
+La transmission dans toutes autres circonstances nâest permise que selon les conditions
+stipulÃ©es ci-dessous. Sous-licencier nâest pas autorisÃ© ; lâarticle 10 le rend inutile.
+3. ProtÃ©ger les Droits des Utilisateurs Contre les Lois Anti-
+Contournement.
+Aucune crÃ©ation rÃ©gie ne sera considÃ©rÃ©e comme faisant partie dâune mesure technique
+efficace aux termes de toute loi applicable mettant en oeuvre les obligations prÃ©vues Ã 
+lâarticle 11 du traitÃ© international sur le droit dâauteur adoptÃ© Ã  lâOMPI le 20 dÃ©cembre 1996,
+ou toutes lois similaires interdisant ou restreignant le contournement de telles mesures.
+Si vous transmettez une crÃ©ation rÃ©gie, vous renoncez Ã  tout droit dâinterdire le
+contournement des mesures techniques dÃ¨s lors quâun tel contournement serait effectuÃ© en
+exerÃ§ant des droits issus de cette Licence concernant la crÃ©ation rÃ©gie, et vous dÃ©clarez
+nâavoir aucune intention de limiter le fonctionnement ou la modification de la crÃ©ation en
+opposant, Ã  lâencontre des utilisateurs de la crÃ©ation, vos droits ou ceux de tiers dâinterdire le
+contournement de mesures techniques.
+4. Transmission des Exemplaires Conformes.
+Vous pouvez transmettre des exemplaires conformes du code source du Programme tel que
+vous le recevez, sur tout support, pourvu que vous apposiez scrupuleusement et de faÃ§on
+appropriÃ©e sur chaque exemplaire une notice de Droit dâAuteur appropriÃ©e ; conserviez
+intactes toutes les mentions Ã©tablissant que cette Licence et tous les termes non permissifs
+ajoutÃ©s conformÃ©ment Ã  lâarticle 7 sâappliquent Ã  ce code ; conserviez intactes toutes les
+mentions dâabsence de toute garantie ; et donniez Ã  tous les destinataires un exemplaire de
+cette Licence avec le Programme.
+Vous pouvez percevoir un prix quelconque ou aucun prix pour chacun des exemplaires que
+vous transmettez, et vous pouvez proposer une assistance ou la protection dâune garantie Ã 
+titre onÃ©reux.
+5. Transmission des versions sources modifiÃ©es.
+Vous pouvez transmettre une crÃ©ation basÃ©e sur le Programme, ou les modifications pour la
+produire Ã  partir du Programme, sous la forme de code source selon les termes de lâarticle 4,
+dÃ¨s lors que vous remplissez Ã©galement toutes ces conditions :
+1. La crÃ©ation doit comporter des mentions proÃ©minentes indiquant que vous lâavez
+modifiÃ©e, et donnant une date correspondante.
+2. La crÃ©ation doit comporter des mentions proÃ©minentes indiquant quâelle est publiÃ©e
+sous cette Licence et tous les termes ajoutÃ©s conformÃ©ment Ã  lâarticle 7. Cette
+obligation modifie lâobligation de lâarticle 4 de Â« conserver intactes toutes les
+mentions Â».
+3. Vous devez licencier la crÃ©ation entiÃ¨re, dans son ensemble, aux termes de cette
+Licence Ã  toute personne qui entre en possession dâun exemplaire. Cette Licence
+sâappliquera en consÃ©quence, en mÃªme temps que tous les termes additionnels de
+lâarticle 7 applicables, Ã  la crÃ©ation dans son ensemble, et Ã  tous ses Ã©lÃ©ments,
+indÃ©pendamment de la faÃ§on dont ils sont assemblÃ©s. Cette licence ne donne aucune
+autorisation de licencier la crÃ©ation d'une quelconque autre faÃ§on, mais elle nâinvalide
+pas une telle autorisation si vous lâavez reÃ§ue sÃ©parÃ©ment.
+4. Si la crÃ©ation a des interfaces utilisateurs interactives, chacune doit afficher les
+Mentions LÃ©gales AppropriÃ©es ; cependant si le Programme a des interfaces
+interactives qui nâaffichent pas de Mentions LÃ©gales AppropriÃ©es, votre crÃ©ation nâa
+pas besoin de leur faire afficher.
+Une compilation dâune crÃ©ation rÃ©gie avec dâautres crÃ©ations sÃ©parÃ©es et indÃ©pendantes, qui
+ne sont pas par leur nature des extensions de la crÃ©ation rÃ©gie, et qui ne sont pas combinÃ©es
+avec elle de sorte Ã  former un programme plus large, dans ou sur un volume dâun support de
+stockage ou de distribution, est appelÃ© un Â« agrÃ©gat Â» si la compilation et son droit dâauteur
+en rÃ©sultant ne sont pas utilisÃ©s pour limiter lâaccÃ¨s ou les droits des utilisateurs de la
+compilation au-delÃ  de ce que permettent les crÃ©ations individuelles. Lâinclusion dâune
+crÃ©ation rÃ©gie dans un agrÃ©gat nâentraÃ®ne pas lâapplication de cette Licence aux autres parties
+de lâagrÃ©gat.
+6. Transmission des Formes Non Sources.
+Vous pouvez transmettre une crÃ©ation rÃ©gie sous forme de code objet suivant les termes des
+articles 4 et 5, Ã  condition que vous transmettiez Ã©galement la Source Correspondante lisible
+par une machine selon les termes de cette Licence, dâune de ces faÃ§ons :
+1. Transmettre le code objet au sein, ou incorporÃ© dans, un produit physique (y compris
+un support de distribution physique), accompagnÃ© par la Source Correspondante
+reproduite sur un support physique durable habituellement utilisÃ© pour lâÃ©change de
+logiciels.
+2. Transmettre le code objet au sein, ou incorporÃ© dans, un produit physique (y compris
+un support de distribution physique), accompagnÃ© dâune offre Ã©crite, valable pour au
+moins trois ans et valable aussi longtemps que vous fournissez des piÃ¨ces de rechange
+ou un support client pour ce modÃ¨le de produit, afin de donner Ã  quiconque possÃ¨de le
+code objet soit (1) un exemplaire de la Source Correspondante pour tous les logiciels
+dans le produit qui sont rÃ©gis par cette Licence, sur un support physique durable
+habituellement utilisÃ© pour lâÃ©change de logiciels, pour un prix nâexcÃ©dant pas votre
+coÃ»t raisonnable de transmission matÃ©rielle de la source, soit (2) un accÃ¨s afin de
+copier la Source Correspondante depuis un serveur rÃ©seau sans frais.
+3. Transmettre des exemplaires individuels du code objet avec une copie de lâoffre Ã©crite
+de fournir la Source Correspondante. Cette alternative n'est permise
+qu'occasionnellement et de faÃ§on non commerciale, et seulement si vous avez reÃ§u le
+code objet avec une telle offre, en accord avec lâarticle 6 alinÃ©a b.
+4. Transmettre le code objet en offrant un accÃ¨s depuis un emplacement dÃ©signÃ© (Ã  titre
+gratuit ou onÃ©reux ) et offrir un accÃ¨s Ã©quivalent Ã  la Source Correspondante de la
+mÃªme maniÃ¨re via le mÃªme emplacement et sans frais supplÃ©mentaire. Vous nâavez
+pas besoin dâobliger les destinataires Ã  copier la Source Correspondante avec le code
+objet. Si lâemplacement pour copier le code objet est un serveur rÃ©seau, la Source
+Correspondante peut Ãªtre sur un serveur diffÃ©rent (administrÃ© par vous ou par un tiers)
+qui permet des conditions Ã©quivalentes de copie, pourvu que vous mainteniez des
+indications claires Ã  proximitÃ© du code objet indiquant oÃ¹ trouver la Source
+Correspondante. IndÃ©pendamment de quel serveur hÃ©berge la Source Correspondante,
+vous demeurez obligÃ© de vous assurer quâil est disponible aussi longtemps que
+nÃ©cessaire pour remplir ces obligations.
+5. Transmettre le code objet en utilisant une transmission pair-Ã -pair pourvu que vous
+informiez les autres pairs oÃ¹ le code objet et la Source Correspondante de la crÃ©ation
+sont proposÃ©s au public sans frais au terme de lâarticle 6 alinÃ©a d.
+Une portion sÃ©parable du code objet, dont le code source est exclu de la Source
+Correspondante en tant que BibliothÃ¨que SystÃ¨me, nâa pas besoin dâÃªtre inclus dans la
+transmission de la crÃ©ation sous forme de code objet.
+Un Â« Produit Utilisateur Â» est soit (1) un Â« produit de consommation, Â» ce qui dÃ©signe tout
+bien personnel corporel qui est normalement utilisÃ© Ã  des fins personnelles, familiales ou
+domestiques, soit (2) toute chose conÃ§ue ou vendue pour incorporation dans un foyer. En cas
+de doute sur le fait de dÃ©terminer si un produit est un produit de consommation, cette
+qualification l'emportera . Pour un produit spÃ©cifique reÃ§u par un utilisateur donnÃ©,
+Â« normalement utilisÃ© Â» renvoie Ã  un usage typique ou commun de cette catÃ©gorie de
+produits, indÃ©pendamment du statut de l'utilisateur donnÃ© ou de la faÃ§on dont l'utilisateur
+donnÃ© utilise effectivement, souhaite utiliser ou dont il est attendu qu'il utilise le produit. Un
+produit est un produit de consommation indÃ©pendamment du fait que ce produit soit
+substantiellement Ã  usage commercial, industriel ou professionnel, Ã  moins que de tels usages
+reprÃ©sentent le seul mode significatif dâutilisation du produit.
+Les Â« Informations dâInstallation Â» dâun Produit Utilisateur dÃ©signent toutes les mÃ©thodes,
+procÃ©dures, clÃ©s dâautorisation ou autres informations requises pour installer et exÃ©cuter des
+versions modifiÃ©es dâune crÃ©ation rÃ©gie dans ce Produit Utilisateur Ã  partir dâune version
+modifiÃ©e de sa Source Correspondante. Ces informations doivent suffire Ã  garantir que le
+fonctionnement continu du code objet modifiÃ© n'est en aucun cas empÃªchÃ© ou entravÃ©
+seulement parce quâune modification a Ã©tÃ© effectuÃ©e.
+Si vous transmettez une crÃ©ation sous forme de code objet conformÃ©ment Ã  cet article dans,
+ou avec, ou spÃ©cifiquement pour une utilisation dans, un Produit Utilisateur et si la
+transmission intervient comme Ã©lÃ©ment d'une opÃ©ration dans laquelle le droit de possession et
+dâutilisation du Produit Utilisateur est transfÃ©rÃ© au destinataire dÃ©finitivement ou pour une
+durÃ©e dÃ©terminÃ©e (indÃ©pendamment de la faÃ§on dont l'opÃ©ration est qualifiÃ©e), la Source
+Correspondante transmise en application de cet article doit Ãªtre accompagnÃ©e des
+Informations dâInstallation. Toutefois, cette obligation ne sâapplique pas si ni vous ni aucun
+tiers ne conservez la possibilitÃ© dâinstaller un code objet modifiÃ© sur le Produit Utilisateur
+(par exemple, la crÃ©ation a Ã©tÃ© installÃ©e en mÃ©moire morte).
+Lâobligation de fournir les Informations dâInstallation nâinclut pas celle de continuer Ã  fournir
+un service de support, une garantie ou des mises Ã  jour pour une crÃ©ation qui a Ã©tÃ© modifiÃ©e
+ou installÃ©e par le destinataire, ou pour le Produit Utilisateur dans lequel elle a Ã©tÃ© modifiÃ©e
+ou installÃ©e. LâaccÃ¨s Ã  un rÃ©seau peut Ãªtre refusÃ© lorsque la modification elle-mÃªme affecte
+matÃ©riellement et dÃ©favorablement le fonctionnement du rÃ©seau ou viole les rÃ¨gles et
+protocoles pour la communication au travers du rÃ©seau.
+La Source Correspondante transmise, et les Informations dâInstallation fournies,
+conformÃ©ment Ã  cet article, doivent Ãªtre dans un format publiquement documentÃ© (et dont
+une implÃ©mentation est disponible auprÃ¨s du public sous forme de code source) et ne doivent
+nÃ©cessiter aucune clÃ© ou mot de passe spÃ©cial pour la dÃ©compression , la lecture ou la copie.
+7. Termes additionnels.
+Les Â« Permissions additionnelles Â» dÃ©signent des termes qui complÃ¨tent les termes de cette
+Licence en stipulant des exceptions Ã  lâune ou plusieurs de ses conditions. Les permissions
+additionnelles qui sont applicables Ã  lâentier Programme doivent Ãªtre traitÃ©es comme si elles
+Ã©taient incluses dans cette Licence, dans la mesure oÃ¹ elles sont valides au terme de la loi
+applicable. Si des permissions additionnelles sâappliquent uniquement Ã  une partie du
+Programme, cette partie peut Ãªtre utilisÃ©e sÃ©parÃ©ment selon les termes de ces permissions,
+mais lâentier Programme demeure soumis Ã  cette Licence sans prise en compte des
+Permissions additionnelles.
+Quand vous transmettez un exemplaire dâune crÃ©ation rÃ©gie, vous pouvez Ã  votre convenance
+supprimer toute permission additionnelle sur cet exemplaire, ou sur nâimporte quelle partie
+de celui-ci. (Des permissions additionnelles peuvent Ãªtre rÃ©digÃ©es afin de requÃ©rir leur propre
+suppression dans certains cas lorsque vous modifiez la crÃ©ation). Vous pouvez stipuler des
+permissions additionnelles sur une contribution, ajoutÃ©e par vos soins Ã  une crÃ©ation rÃ©gie,
+sur laquelle vous disposez des droits d'auteur ou des permissions adÃ©quates pour ce faire.
+Nonobstant toute autre clause de cette Licence, pour une contribution que vous ajoutez Ã  une
+crÃ©ation rÃ©gie, vous pouvez (si vous y Ãªtes autorisÃ© par les titulaires des droits dâauteur sur
+cette contribution) complÃ©ter les termes de cette Licence avec des termes :
+1. DÃ©clinant toute garantie ou limitant la responsabilitÃ© diffÃ©remment des termes des
+articles 15 et 16 de cette Licence ; ou
+2. Exigeant le maintien de mentions lÃ©gales spÃ©cifiÃ©es ou de mentions d'attribution de
+paternitÃ© spÃ©cifiÃ©es raisonnables au sein de cette contribution ou dans les Mentions
+LÃ©gales AppropriÃ©es affichÃ©es par les crÃ©ations la contenant ; ou
+3. Interdisant une indication erronÃ©e de l'origine de cette contribution, ou exigeant que
+les versions modifiÃ©es de cette contribution soient marquÃ©es de faÃ§on raisonnable
+comme Ã©tant diffÃ©rent de la version originale ; ou
+4. Limitant lâusage Ã  des fins publicitaires des noms des concÃ©dants ou des auteurs de la
+contribution ; ou
+5. Refusant d'accorder des droits aux termes du droit des marques pour lâutilisation de
+noms commerciaux, marques commerciales ou marques de services ; ou
+6. Exigeant lâindemnisation des concÃ©dants et des auteurs de cette contribution par
+quiconque transmetant la contribution (ou des versions modifiÃ©es de celle-ci) avec des
+acceptations contractuelles de responsabilitÃ© au bÃ©nÃ©fice du rÃ©cipiendaire, pour toute
+responsabilitÃ© que ces acceptations contractuelles imposent directement Ã  ces
+concÃ©dants et auteurs.
+Tous autres termes additionnels non permissifs sont considÃ©rÃ©s comme des Â« restrictions
+supplÃ©mentaires Â» au sens de lâarticle 10. Si le Programme tel que vous lâavez reÃ§u, ou toute
+partie de celui-ci, contient une mention indiquant quâil est rÃ©gi par cette Licence
+accompagnÃ©e d'une stipulation qui est une restriction supplÃ©mentaire, vous pouvez supprimer
+cette stipulation. Si un document de licence contient une restriction supplÃ©mentaire mais
+permet la concession subsÃ©quente ou la transmission sous cette Licence, vous pouvez ajouter
+Ã  une crÃ©ation rÃ©gie une contribution rÃ©gie aux termes de ce document de licence, Ã  condition
+que la restriction supplÃ©mentaire ne survive pas Ã  une telle concession subsÃ©quente ou une
+telle transmission.
+Si vous ajoutez des termes Ã  une crÃ©ation rÃ©gie en accord avec cet article, vous devez inclure,
+dans les fichiers sources appropriÃ©s, une dÃ©claration des termes additionnels qui sâappliquent
+Ã  ces fichiers, ou une mention indiquant oÃ¹ trouver les termes applicables.
+Les termes additionnels, permissifs ou non permissifs, peuvent Ãªtre spÃ©cifiÃ©s sous la forme
+dâune licence Ã©crite sÃ©parÃ©ment, ou spÃ©cifiÃ©s comme des exceptions ; les exigences ci-dessus
+sâappliquent dans chacun de ces cas.
+8. RÃ©siliation
+Vous ne pouvez ni propager ni modifier une crÃ©ation rÃ©gie en dehors de ce qui est
+expressÃ©ment prÃ©vu par cette Licence. Toute autre tentative de la propager ou la modifier est
+nulle et mettra automatiquement un terme Ã  vos droits issus de cette Licence (y compris toute
+licence de brevet accordÃ©e en application du troisiÃ¨me paragraphe de lâarticle 11).
+Cependant, si vous cessez toute violation de cette Licence, alors votre licence concÃ©dÃ©e par
+un titulaire de droit dâauteur en particulier est rÃ©instaurÃ©e (a) Ã  titre provisoire Ã  moins que et
+jusquâÃ  ce que le titulaire de droit dâauteur mette fin dÃ©finitivement et explicitement Ã  votre
+licence, et (b) de faÃ§on permanente si le titulaire de droit dâauteur ne vous notifie pas par un
+moyen raisonnable la violation dans les soixante (60) jours aprÃ¨s la cessation.
+De plus, votre licence obtenue dâun titulaire de droit dâauteur en particulier est rÃ©instaurÃ©e de
+faÃ§on permanente si le titulaire vous notifie par un moyen raisonnable la violation, si câest la
+premiÃ¨re fois que vous avez reÃ§u une notification de violation de cette Licence (pour
+n'importe quelle crÃ©ation) de la part de ce titulaire de droit dâauteur, et si vous remÃ©diez Ã 
+cette violation dans les trente (30) jours qui suivent votre rÃ©ception de la notification.
+La cessation de vos droits en application de cet article n'entraÃ®nera pas la rÃ©siliation des
+licences pour les parties qui ont reÃ§u des exemplaires ou des droits de votre part en
+application de cette Licence. Si vos droits ont cessÃ© et nâont pas Ã©tÃ© rÃ©instaurÃ©s de faÃ§on
+permanente, vous nâÃªtes plus autorisÃ©s Ã  recevoir de nouvelles licences pour les mÃªmes
+Ã©lÃ©ments au titre de lâarticle 10.
+9. Acceptation non requise pour obtenir des exemplaires.
+Vous nâÃªtes pas obligÃ©s dâaccepter cette Licence pour recevoir ou exÃ©cuter un exemplaire du
+Programme. La propagation accessoire dâune crÃ©ation rÃ©gie qui se produit du seul fait de
+l'utilisation dâune transmission pair-Ã -pair pour recevoir un exemplaire identique ne nÃ©cessite
+pas dâacceptation. Cependant, seule cette Licence vous accorde la permission de propager ou
+de modifier une quelconque crÃ©ation rÃ©gie. Ces actions enfreignent le droit dâauteur si vous
+nâacceptez pas cette Licence. Par consÃ©quent, en modifiant ou propageant une crÃ©ation rÃ©gie,
+vous manifestez votre acceptation de cette Licence de ce faire.
+10. Concession automatique de Licence aux Destinataires
+SubsÃ©quents.
+Chaque fois que vous transmettez une crÃ©ation rÃ©gie, le destinataire reÃ§oit automatiquement
+une licence en provenance des concÃ©dants originaires, pour exÃ©cuter, modifier et propager
+cette crÃ©ation, selon les termes de cette Licence. Vous n'Ãªtes pas responsaable d'assurer la
+mise en conformitÃ© par d'assurer du respect de des tiers.
+Une Â« opÃ©ration entre entitÃ©s Â» est une opÃ©ration transfÃ©rant le contrÃ´le dâune organisation,
+ou de l'essentiel de ses actifs, ou scindant une organisation ou fusionnant des organisations.
+Si la propagation dâune crÃ©ation rÃ©gie rÃ©sulte dâune opÃ©ration entre entitÃ©s, chaque partie Ã 
+cette opÃ©ration recevant un exemplaire de la crÃ©ation reÃ§oit Ã©galement toutes licences
+relatives Ã  la crÃ©ation que le titulaire de droit prÃ©cÃ©dent avait ou pouvait transfÃ©rer aux termes
+du paragraphe prÃ©cÃ©dent, ainsi quâun droit de dÃ©tention de la Source Correspondante de cette
+crÃ©ation du titulaire de droit prÃ©cÃ©dent si le prÃ©dÃ©cesseur en dispose ou peut lâobtenir par des
+efforts raisonnables.
+Vous ne pouvez pas imposer de restriction supplÃ©mentaire Ã  lâexercice des droits accordÃ©s ou
+revendiquÃ©s au titre de cette Licence. Par exemple, vous ne pouvez pas imposer de frais de
+licence, redevance, ni d'autre contrepartie financiÃ¨re nÃ©cessaire Ã  lâexercice des droits
+accordÃ©s par cette Licence ; et vous ne pouvez engager une quelconque instance judiciaire (y
+compris une demande connexe ou reconventionnelle dans un procÃ¨s) en allÃ©guant quâune
+quelconque revendication de brevet est contrefaite par la rÃ©alisation, lâutilisation, la vente,
+lâoffre de vente, ou lâimportation du Programme ou dâune quelconque partie de celui-ci.
+11. Brevets.
+Un Â« contributeur Â» est un titulaire de droits qui autorise par cette Licence lâutilisation du
+Programme ou d'une crÃ©ation sur laquelle le Programme est basÃ©. La crÃ©ation ainsi licenciÃ©e
+est appelÃ©e la Â« version contributive Â» du contributeur.
+Les Â« revendications essentielles de brevet Â» du contributeur sont toutes les revendications de
+brevets dÃ©tenus ou contrÃ´lÃ©s par le contributeur, qu'elles soient dÃ©jÃ  acquises ou qu'elles
+soient acquises subsÃ©quemment, qui pourraient Ãªtre enfreintes par un quelconque mode,
+permis par cette Licence, de rÃ©alisation, d'utilisation ou de vente de sa version contributive,
+mais n'incluent pas les revendications qui seraient contrefaites seulement comme
+consÃ©quence d'une modification ultÃ©rieure de la version contributive. Pour les besoins de
+cette dÃ©finition, le Â« contrÃ´le Â» inclut le droit de concÃ©der des sous-licences de brevets dâune
+maniÃ¨re qui soit en accord avec les obligations de cette Licence.
+Chaque contributeur vous accorde une licence de brevet non exclusive, mondiale et gratuite,
+sur les revendications essentielles de brevet du contributeur pour rÃ©aliser, utiliser, vendre,
+commercialiser, importer et par ailleurs pour exÃ©cuter, modifier et propager les contenus de
+sa version contributive.
+Dans les trois paragraphes suivants, une Â« licence de brevet Â» dÃ©signe tout accord ou
+engagement exprÃ¨s, quelle que soit sa dÃ©nomination, de ne pas se prÃ©valoir d'un brevet
+(comme une permission expresse d'exercer un brevet ou un accord de ne pas poursuivre pour
+violation de brevet). Â« Accorder Â» une telle licence de brevet Ã  une partie signifie conclure un
+tel accord ou engagement de ne pas se prÃ©valoir d'un brevet contre la partie.
+Si vous transmettez une crÃ©ation rÃ©gie, en sachant qu'elle repose sur une licence de brevet, et
+la Source Correspondante de la crÃ©ation nâest disponible pour personne afin de copier,
+gratuitement et selon les termes de cette Licence, via un serveur rÃ©seau publiquement
+accessible ou tout autre moyen immÃ©diatement accessible, alors vous devez soit (1) rendre la
+Source Correspondante ainsi disponible, soit (2) prendre vos dispositions pour vous priver
+vous-mÃªme du bÃ©nÃ©fice de la licence de brevet pour cette crÃ©ation spÃ©cifique, soit (3) prendre
+vos dispositions, dâune maniÃ¨re cohÃ©rente avec les obligations de cette Licence, pour Ã©tendre
+la licence de brevet aux destinataires subsÃ©quents. Â« En sachant qu'elle repose Â» signifie que
+vous avez effectivement connaissance que, en l'absence de la licence de brevet, votre
+transmission de la crÃ©ation rÃ©gie dans un pays, ou lâutilisation de la crÃ©ation rÃ©gie par votre
+destinataire dans ce pays, violerait un ou plusieurs brevets identifiables dans ce pays que
+vous avez des raisons de penser valides.
+Si, conformÃ©ment Ã  ou en relation avec une transaction ou un accord individuel, vous
+transmettez, ou propagez en procurant une transmission, une crÃ©ation rÃ©gie et accordez une
+licence de brevet Ã  quelques-unes des parties recevant la crÃ©ation rÃ©gie les autorisant
+dâutiliser, propager, modifier ou transmettre un exemplaire donnÃ© de la crÃ©ation rÃ©gie, alors la
+licence de brevet que vous accordÃ©e est automatiquement Ã©tendue Ã  tous les destinataires de
+la crÃ©ation rÃ©gie et des crÃ©ations basÃ©es sur celle-ci.
+Une licence de brevet est Â« discriminatoire Â» si elle nâinclut pas dans son Ã©tendue, prohibe
+l'exercice de, ou est conditionnÃ© au non exercice d'un ou plusieurs des droits qui sont
+spÃ©cifiquement accordÃ©s aux termes de cette Licence. Vous ne pouvez pas transmettre une
+crÃ©ation rÃ©gie si vous prenez part Ã  un accord avec un tiers qui a pour activitÃ© la distribution
+de logiciels, selon lequel vous effectuez un paiement au tiers fondÃ© sur lâÃ©tendue de votre
+activitÃ© de transmission de la crÃ©ation, et selon lequel le tiers accorde, Ã  chacune des parties
+qui recevrait de vous la crÃ©ation rÃ©gie, une licence de brevet discriminatoire (a) en relation
+avec les exemplaires de la crÃ©ation rÃ©gie transmis par vous (ou les exemplaires rÃ©alisÃ©s Ã 
+partir de ces exemplaires), ou (b) principalement destinÃ©e Ã  et en relation avec des produits
+spÃ©cifiques ou compilations qui contiennent la crÃ©ation rÃ©gie, Ã  moins que vous ayez conclu
+cet accord, ou que la licence de brevet ait Ã©tÃ© accordÃ©e, avant le 28 mars 2007.
+Aucun terme de cette Licence ne pourra Ãªtre interprÃ©tÃ© comme excluant ou limitant toute
+licence implicite ou dâautres moyens de dÃ©fense en matiÃ¨re de contrefaÃ§on qui vous seraient
+autrement disponibles selon la loi applicable relative aux brevets.
+12. Non abandon de la libertÃ© des autres.
+Si des obligations vous sont imposÃ©es (que cela soit par dÃ©cision de justice, convention ou
+autrement) qui contredisent les exigences de cette Licence, elles ne vous libÃ¨rent pas des
+exigences de cette Licence. Si vous ne pouvez pas transmettre une crÃ©ation rÃ©gie de faÃ§on Ã 
+satisfaire simultanÃ©ment vos obligations issues de cette Licence et toutes autres obligations
+pertinentes, alors en consÃ©quence vous ne pouvez pas du tout la transmettre. Par exemple, si
+vous vous acceptez des stipulations qui vous obligent Ã  collecter une redevance pour la
+transmission subsÃ©quente auprÃ¨s de ceux vers qui vous transmettez le Programme, la seule
+faÃ§on qui puisse vous permettre de satisfaire tant ces stipulations que cette Licence serait de
+vous abstenir entiÃ¨rement de transmettre le Programme.
+Article 13. Utilisation avec la Licence GÃ©nÃ©rale Publique Affero
+GNU.
+Nonobstant toute autre clause de cette Licence, vous avez la permission de lier ou combiner
+toute crÃ©ation rÃ©gie avec une crÃ©ation licenciÃ©e en application de la version 3 de la GNU
+Affero General Public License en une seule crÃ©ation combinÃ©e, et de transmettre la crÃ©ation
+en rÃ©sultant. Les clauses de cette Licence continueront Ã  sâappliquer Ã  la partie qui constitue
+la crÃ©ation rÃ©gie, mais les obligations spÃ©ciales de l'article 13 de la GNU Affero General
+Public Licence concernant lâinteraction au travers dâun rÃ©seau sâappliqueront Ã  la
+combinaison en tant que telle.
+14. Versions rÃ©visÃ©es de cette Licence.
+La Free Software Foundation peut publier des versions rÃ©visÃ©es et/ou nouvelles de la GNU
+General Public License Ã  tout moment. Ces nouvelles versions conserveront lâesprit de la
+prÃ©sente version, mais pourront diffÃ©rer dans les dÃ©tails afin de rÃ©pondre Ã  de nouveaux
+problÃ¨mes ou prÃ©occupations.
+Chaque version reÃ§oit un numÃ©ro de version propre. Si le Programme indique quâil est
+soumis Ã  une version particuliÃ¨re de la GNU General Public License Â« ou toute version
+ultÃ©rieure Â» (âor any later versionâ) Ã  celle-ci, vous avez la possibilitÃ© dâappliquer les
+stipulations soit de cette version numÃ©rotÃ©e, soit de nâimporte quelle version publiÃ©e
+ultÃ©rieurement par la Free Software Foundation. Si le Programme nâindique pas une version
+spÃ©cifique de la GNU General Public License, vous pouvez choisir n'importe laquelle des
+versions publiÃ©es par la Free Software Foundation.
+Si le Programme prÃ©cise quâun intermÃ©diaire peut dÃ©cider des versions futures de la GNU
+General Public License qui pourront Ãªtre utilisÃ©es, la dÃ©claration publique dâacceptation
+dâune version par cet intermÃ©diaire vous autorise de maniÃ¨re permanente Ã  choisir cette
+version pour le Programme.
+Des versions ultÃ©rieures de la licence pourront vous donner des permissions additionnelles ou
+diffÃ©rentes. Cependant, votre choix de suivre une version ultÃ©rieure nâentraÃ®ne aucune
+obligation supplÃ©mentaire pour tout auteur ou titulaire de droit dâauteur.
+15. DÃ©claration d'absence de garantie.
+IL NâY A AUCUNE GARANTIE POUR LE PROGRAMME, DANS LES LIMITES
+PERMISES PAR LA LOI APPLICABLE. Ã MOINS QUE CELA NE SOIT ÃTABLI
+DIFFÃREMMENT PAR ÃCRIT, LES TITULAIRES DE DROITS ET/OU LES AUTRES
+PARTIES FOURNISSENT LE PROGRAMME Â« EN LâÃTAT Â» SANS GARANTIE
+DâAUCUNE SORTE, QUâELLE SOIT EXPRIMÃE OU TACITE, CECI COMPRENANT,
+DE MANIÃRE NON EXHAUSTIVE, LES GARANTIES TACITES DE
+COMMERCIALISATION ET DâADÃQUATION Ã UN OBJECTIF PARTICULIER. VOUS
+ASSUMEZ LE RISQUE ENTIER CONCERNANT LA QUALITÃ ET LES
+PERFORMANCES DU PROGRAMME. DANS LâÃVENTUALITÃ OÃ LE PROGRAMME
+SâAVÃRERAIT DÃFECTUEUX, VOUS ASSUMEZ LES COÃTS DE TOUS LES
+SERVICES, RÃPARATIONS OU CORRECTIONS NÃCESSAIRES.
+16. Limitation de responsabilitÃ©.
+DANS AUCUNE CIRCONSTANCE AUTRE QUE CELLES REQUISES PAR LA LOI
+APPLICABLE OU CONSENTIES PAR UN ACCORD ÃCRIT, LES TITULAIRES DE
+DROITS, OU TOUT AUTRE PARTIE QUI MODIFIE ET/OU TRANSFÃRE LE
+PROGRAMME AINSI QU'AUTORISÃ PRÃCÃDEMMENT, NE NE PEUVENT ÃTRE
+TENU POUR RESPONSABLE ENVERS VOUS POUR LES DOMMAGES, INCLUANT
+TOUT DOMMAGE GÃNÃRAL, SPÃCIAL, ACCIDENTEL OU INDIRECTS
+CONSECUTIFS A LâUTILISATION OU A LâINCAPACITÃ DâUTILISER LE
+PROGRAMME (NOTAMMENT LA PERTE DE DONNÃES OU LâINEXACTITUDE DES
+DONNÃES RETOURNÃES OU LES PERTES SUBIES PAR VOUS OU DES PARTIES
+TIERCES OU LâINCAPACITÃ DU PROGRAMME Ã FONCTIONNER AVEC TOUT
+AUTRE PROGRAMME), MÃME SI UN TEL TITULAIRE OU TOUTE AUTRE PARTIE A
+ÃTÃ INFORMÃE DE LA POSSIBILITÃ DE TELS DOMMAGES
+17. InterprÃ©tation des sections 15 et 16.
+Si la dÃ©claration dâabsence de garantie et la limitation de responsabilitÃ© fournies ci-dessus ne
+peuvent prendre effet dans certaines juridictions en raison de leurs termes, les cours de justice
+qui les examinent doivent appliquer la lÃ©gislation locale qui s'approche le plus d'une
+exclusion absolue de toute responsabilitÃ© civile liÃ©e au Programme, Ã  moins quâune garantie
+ou hypothÃ¨se de responsabilitÃ© accompagne un exemplaire du Programme en contrepartie
+dâun paiement.
+FIN DES STIPULATIONS.
+Comment appliquer ces stipulations Ã  vos nouveaux programmes
+Si vous dÃ©veloppez un nouveau programme et que vous souhaitez que le public puisse en
+avoir l'utilisation optimale, la meilleure faÃ§on dây parvenir est dâen faire un logiciel libre que
+chacun peut redistribuer et modifier conformÃ©ment Ã  ces stipulations.
+Pour ce faire, joignez les mentions suivantes au programme. Il est plus sÃ»r de les joindre au
+dÃ©but de chacun des fichiers sources afin d'affirmer de la faÃ§on la plus effective possible
+lâexclusion de garantie ; et chaque fichier devrait comporter au moins la ligne Â« copyright Â»
+et un lien versla mention complÃ¨te :
+<une ligne donnant le nom du programme et une brÃ¨ve idÃ©e de ce quâil fait.>
+Copyright (C) <annÃ©e> <nom de lâauteur>
+Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le modifier suivant les
+termes de la GNU General Public License telle que publiÃ©e par la Free Software Foundation ,
+soit la version 3 de la Licence, soit (Ã  votre grÃ©) toute version ultÃ©rieure.
+Ce programme est distribuÃ© dans lâespoir quâil sera utile, mais SANS AUCUNE
+GARANTIE : sans mÃªme la garantie implicite de COMMERCIALISABILITÃ ni
+dâADÃQUATION Ã UN OBJECTIF PARTICULIER. Consultez la GNU General Public
+License pour plus de dÃ©tails.
+Vous devriez avoir reÃ§u une copie de la GNU General Public License avec ce programme ; si
+ce nâest pas le cas, consultez : <http://www.gnu.org/licenses/>.
+Ajoutez Ã©galement les informations permettant de vous contacter par courrier Ã©lectronique ou
+postal.
+Si le programme produit une interaction sur un terminal, faites-lui afficher une courte notice
+comme celle-ci lors de son dÃ©marrage en mode interactif :
+<programme> Copyright (C) <annÃ©e> <nom de lâauteur>
+Ce programme vient SANS ABSOLUMENT AUCUNE GARANTIE ; taper âaffiche gâ pour
+les dÃ©tails. Ceci est un logiciel libre et vous Ãªtes invitÃ© Ã  le redistribuer suivant certaines
+conditions ; taper âaffiche câ pour les dÃ©tails.
+Les commandes hypothÃ©tiques âaffiche gâ etâaffiche câ devrait afficher les parties
+appropriÃ©es de la GNU General Public licence. Bien sÃ»r, les commandes de votre programme
+pourraient Ãªtre diffÃ©rentes ; pour une interface graphique, vous pourriez utiliser une Â« boÃ®te
+Ã propos. Â»
+Vous devriez Ã©galement obtenir de votre employeur (si vous travaillez en tant que
+programmeur) ou de votre Ã©cole, le cas Ã©chÃ©ant, un acte de Â« renonciation aux droits
+d'auteur Â» pour ce programme, si nÃ©cessaire. Pour plus dâinformations Ã  ce sujet, et pour
+comprendre comment appliquer et respecter la GNU GPL, consultez <http://www.gnu.org/
+licenses/>.
+La GNU General Public License ne permet pas dâincorporer votre programme dans des
+programmes propriÃ©taires. Si votre programme est une bibliothÃ¨que de fonctions, vous
+pouvez considÃ©rer quâil est plus utile d'autoriser un lien entre des applications propriÃ©taires et
+la bibliothÃ¨que. Si câest ce que vous voulez faire, utilisez la GNU Lesser General Public
+License Ã  la place de cette Licence. Mais dâabord, veuillez lire <http://www.gnu.org/
+philosophy/why-not-lgpl.html> ou la traduction <http://www.gnu.org/licenses/why-not-
+lgpl.fr.html>
