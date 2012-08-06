@@ -1,7 +1,7 @@
 REQUIRE
 ------
 
-A D compilater: ldc, gdc, dmd
+A D compiler: ldc, gdc, dmd
 Standard library Phobos with his devel file
 libsqlite
 
