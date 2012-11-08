@@ -238,7 +238,7 @@ class Database{
          * But prefer in first insert, select, udpdate method define in Table
          * Examples:
          *     b.command( "SELECT FROM people ( name ) WHERE id=?;", cast(Variant)1 );
-         *     b.command( "SELECT FROM car ( name ) WHERE constructor=? and model)?;", cast(Variant) "citroën", cast(Variant) "C5" );
+         *     b.command( "SELECT FROM car ( name ) WHERE constructor=? and model=?;", cast(Variant) "citroën", cast(Variant) "C5");
          */
         Row[] command( string query, Variant[] values... ){
             return _statement.prepare( query, values );
@@ -249,7 +249,7 @@ class Database{
          * This method is usefull for run multiple custom command
          * But prefer in first insert, select, udpdate method define in Table
          * Examples:
-         *     b.command( ["SELECT FROM people ( name ) WHERE id=?;", "SELECT FROM car ( name ) WHERE constructor=? and model)?;"], [ [cast(Variant)1],  [cast(Variant)"citroën", cast(Variant)"C5" ] ] );
+         *     b.command( ["SELECT FROM people ( name ) WHERE id=?;", "SELECT FROM car ( name ) WHERE constructor=? and mode=?;"], [ [cast(Variant)1],  [cast(Variant)"citroën", cast(Variant)"C5" ] ] );
          */
         void command( string[] querys, Variant[][] values... ){
             _statement.prepare( querys, values );

@@ -44,26 +44,31 @@ ifeq ($(OS),"Windows")
     CP    = copy /Y
     MKDIR = mkdir
     MV    = move
+    LN    = mklink
 else ifeq ($(OS),"Linux")
     RM    = rm -fr
     CP    = cp -fr
     MKDIR = mkdir -p
     MV    = mv
+    LN    = ln -s
 else ifeq ($(OS),"Freebsd")
     RM    = rm -fr
     CP    = cp -fr
     MKDIR = mkdir -p
     MV    = mv
+    LN    = ln -s
 else ifeq ($(OS),"Solaris")
     RM    = rm -fr
     CP    = cp -fr
     MKDIR = mkdir -p
     MV    = mv
+    LN    = ln -s
 else ifeq ($(OS),"Darwin")
     RM    = rm -fr
     CP    = cp -fr
     MKDIR = mkdir -p
     MV    = mv
+    LN    = ln -s
 endif
 
 # If compiler is not define try to find it
@@ -98,19 +103,43 @@ else
     DDOC_MACRO=
 endif
 
-#define a suufix lib who inform is build with which compiler
+#define a suffix lib who inform is build with which compiler, name of phobos lib
 ifeq ($(DC),gdc)
-    COMPILER=gdc
+    COMPILER    = gdc
+    VERSION     = -fversion
+    SONAME_FLAG = $(LINKERFLAG) -soname
+    PHOBOS      = gphobos2
+    DRUNTIME    = gdruntime
 else ifeq ($(DC),gdmd)
-    COMPILER=gdc
+    COMPILER    = gdc
+    VERSION     = -fversion
+    SONAME_FLAG = $(LINKERFLAG) -soname
+    PHOBOS      = gphobos2
+    DRUNTIME    = gdruntime
 else ifeq ($(DC),ldc)
-    COMPILER=ldc
+    COMPILER    = ldc
+    VERSION     = -d-version
+    SONAME_FLAG = -soname
+    PHOBOS      = phobos-ldc
+    DRUNTIME    = druntime-ldc
 else ifeq ($(DC),ldc2)
-    COMPILER=ldc
+    COMPILER    = ldc
+    VERSION     = -d-version
+    SONAME_FLAG = -soname
+    PHOBOS      = phobos-ldc
+    DRUNTIME    = druntime-ldc
 else ifeq ($(DC),ldmd)
-    COMPILER=ldc
+    COMPILER    = ldc
+    VERSION     = -d-version
+    SONAME_FLAG = -soname
+    PHOBOS      = phobos2-ldc
+    DRUNTIME    = druntime-ldc
 else ifeq ($(DC),dmd)
-    COMPILER=dmd
+    COMPILER    = dmd
+    VERSION     = -version
+    SONAME_FLAG = $(LINKERFLAG)-soname
+    PHOBOS      = phobos2
+    DRUNTIME    = druntime
 else ifeq ($(DC),dmd2)
     COMPILER=dmd
 endif
@@ -226,8 +255,8 @@ BUILD_PATH          = ./build
 DCFLAGS_IMPORT      =
 DCFLAGS_LINK        = $(LDCFLAGS)
 
-LIBNAME             = lib$(PROJECT_NAME)-$(COMPILER)$(STATIC_LIB_EXT)
-SONAME              = lib$(PROJECT_NAME)-$(COMPILER)$(DYNAMIC_LIB_EXT)
+STATIC_LIBNAME      = lib$(PROJECT_NAME)-$(COMPILER)$(STATIC_LIB_EXT)
+SHARED_LIBNAME      = lib$(PROJECT_NAME)-$(COMPILER)$(DYNAMIC_LIB_EXT)
 
 PKG_CONFIG_FILE     = $(PROJECT_NAME).pc
 

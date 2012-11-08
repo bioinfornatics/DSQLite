@@ -1,7 +1,12 @@
 export PROJECT_NAME     = DSQLite
 export AUTHOR           = "Jonathan MERCIER"
 export DESCRIPTION      = "D library for use sqlite "
-export VERSION          = 1
+export REPO_SRC_DIR     =
+export LOGO_SRC         =
+export MAJOR_VERSION    = 1
+export MINOR_VERSION    = 0
+export PATCH_VERSION    = 0
+export PROJECT_VERSION  = $(MAJOR_VERSION).$(MINOR_VERSION).$(PATCH_VERSION)
 export LICENSE          = "GPLv3"
 export ROOT_SOURCE_DIR  = sqlite
 DDOCFILES               =
@@ -16,6 +21,12 @@ HEADERS             = $(patsubst %.d,$(IMPORT_PATH)$(PATH_SEP)%.di,  $(SOURCES))
 DOCUMENTATIONS      = $(patsubst %.d,$(DOC_PATH)$(PATH_SEP)%.html,   $(SOURCES))
 DDOCUMENTATIONS     = $(patsubst %.d,$(DDOC_PATH)$(PATH_SEP)%.html,  $(SOURCES))
 DDOC_FLAGS          = $(foreach macro,$(DDOCFILES), $(DDOC_MACRO)$(macro))
+DCFLAGS_IMPORT     += $(foreach dir,$(ROOT_SOURCE_DIR), -I$(dir))
+space :=
+space +=
+
+stripBugfix = $(subst $(space),.,$(strip $(wordlist 1, 2, $(subst ., ,$(1)))))
+
 define make-lib
 	$(MKDIR) $(DLIB_PATH)
 	$(AR) rcs $(DLIB_PATH)$(PATH_SEP)$@ $^
@@ -34,16 +45,16 @@ all-shared: shared-lib header doc pkgfile-shared
 .PHONY : ddoc
 .PHONY : clean
 
-static-lib: $(LIBNAME)
+static-lib: $(STATIC_LIBNAME)
 
-shared-lib: $(SONAME)
+shared-lib: $(SHARED_LIBNAME)
 
 header: $(HEADERS)
 
 doc: $(DOCUMENTATIONS)
 	@echo ------------------ Building Doc done
 
-ddoc: $(DDOCUMENTATIONS)
+ddoc: settings.ddoc $(DDOCUMENTATIONS)
 	$(DC) $(DDOC_FLAGS) index.d $(DF)$(DDOC_PATH)$(PATH_SEP)index.html
 	@echo ------------------ Building DDoc done
 
@@ -66,7 +77,7 @@ pkgfile-shared:
 	@echo                                                                           >> $(PKG_CONFIG_FILE)
 	@echo Name: "$(PROJECT_NAME)"                                                   >> $(PKG_CONFIG_FILE)
 	@echo Description: "$(DESCRIPTION)"                                             >> $(PKG_CONFIG_FILE)
-	@echo Version: "$(VERSION)"                                                     >> $(PKG_CONFIG_FILE)
+	@echo Version: "$(PROJECT_VERSION)"                                             >> $(PKG_CONFIG_FILE)
 	@echo Libs: $(LINKERFLAG)-l$(PROJECT_NAME)-$(COMPILER) $(LINKERFLAG)-lsqlite3   >> $(PKG_CONFIG_FILE)
 	@echo Cflags: -I$(INCLUDE_DIR)sqlite $(LDCFLAGS)                                >> $(PKG_CONFIG_FILE)
 	@echo                                                                           >> $(PKG_CONFIG_FILE)
@@ -85,42 +96,50 @@ pkgfile-static:
 	@echo                                                               >> $(PKG_CONFIG_FILE)
 	@echo Name: "$(PROJECT_NAME)"                                       >> $(PKG_CONFIG_FILE)
 	@echo Description: "$(DESCRIPTION)"                                 >> $(PKG_CONFIG_FILE)
-	@echo Version: "$(VERSION)"                                         >> $(PKG_CONFIG_FILE)
+	@echo Version: "$(PROJECT_VERSION)"                                 >> $(PKG_CONFIG_FILE)
 	@echo Libs: $(LIB_DIR)$(PATH_SEP)$(LIBNAME) $(LINKERFLAG)-lsqlite3  >> $(PKG_CONFIG_FILE)
 	@echo Cflags: -I$(INCLUDE_DIR)sqlite $(LDCFLAGS)                    >> $(PKG_CONFIG_FILE)
 	@echo                                                               >> $(PKG_CONFIG_FILE)
 
+settings.ddoc:
+	@echo "PROJECTNAME  = $(PROJECT_NAME)"                              >  settings.ddoc
+	@echo "LINKPREFIX   = $(LINKERFLAG)"                                >> settings.ddoc
+	@echo "REPOSRCDIR   = $(REPO_SRC_DIR)"                              >> settings.ddoc
+	@echo "ROOT         = $(ROOT_SOURCE_DIR)"                           >> settings.ddoc
+	@echo "LOGOSRC      = $(LOGO_SRC)"                                  >> settings.ddoc
+	@echo "LOGOALT      = $(PROJECT_NAME)"                              >> settings.ddoc
 
 # For build lib need create object files and after run make-lib
-$(LIBNAME): $(OBJECTS)
+$(STATIC_LIBNAME): $(OBJECTS)
 	@echo ------------------ Building static library
 	$(make-lib)
 
 # For build shared lib need create shared object files
-$(SONAME): $(PICOBJECTS)
+$(SHARED_LIBNAME): $(PICOBJECTS)
 	@echo ------------------ Building shared library
 	$(MKDIR) $(DLIB_PATH)
-	$(DC) -shared $(OUTPUT)$(DLIB_PATH)$(PATH_SEP)$@.$(VERSION) $^ -soname=$@.$(VERSION)
+	$(DC) -shared $(SONAME_FLAG) $@.$(MAJOR_VERSION) $(OUTPUT)$(DLIB_PATH)$(PATH_SEP)$@.$(PROJECT_VERSION) $^
+#$(CC) -l$(PHOBOS) -l$(DRUNTIME) -shared -Wl,-soname,$@.$(MAJOR_VERSION) -o $(DLIB_PATH)$(PATH_SEP)$@.$(PROJECT_VERSION) $^
 
 # create object files
 $(BUILD_PATH)$(PATH_SEP)%.o : %.d
-	$(DC) $(DCFLAGS) $(DCFLAGS_LINK) $(DCFLAGS_IMPORT) -c $< $(OUTPUT)$@
+	$(DC) $(DCFLAGS) $(DCFLAGS_IMPORT) -c $< $(OUTPUT)$@
 
 # create shared object files
 $(BUILD_PATH)$(PATH_SEP)%.pic.o : %.d
-	$(DC) $(DCFLAGS) $(DCFLAGS_LINK) $(FPIC) $(DCFLAGS_IMPORT) -c $< $(OUTPUT)$@
+	$(DC) $(DCFLAGS) $(FPIC) $(DCFLAGS_IMPORT) -c $< $(OUTPUT)$@
 
 # Generate Header files
 $(IMPORT_PATH)$(PATH_SEP)%.di : %.d
-	$(DC) $(DCFLAGS) $(DCFLAGS_LINK) $(DCFLAGS_IMPORT) -c $(NO_OBJ) $< $(HF)$@
+	$(DC) $(DCFLAGS) $(DCFLAGS_IMPORT) -c $(NO_OBJ) $< $(HF)$@
 
 # Generate Documentation
 $(DOC_PATH)$(PATH_SEP)%.html : %.d
-	$(DC) $(DCFLAGS) $(DCFLAGS_LINK) $(DCFLAGS_IMPORT) -c $(NO_OBJ)  $< $(DF)$@
+	$(DC) $(DCFLAGS) $(DCFLAGS_IMPORT) -c $(NO_OBJ)  $< $(DF)$@
 
 # Generate ddoc Documentation
 $(DDOC_PATH)$(PATH_SEP)%.html : %.d
-	$(DC) $(DCFLAGS) $(DCFLAGS_LINK) $(DCFLAGS_IMPORT) -c $(NO_OBJ) $(DDOC_FLAGS) $< $(DF)$@
+	$(DC) $(DCFLAGS) $(DCFLAGS_IMPORT) -c $(NO_OBJ) $(DDOC_FLAGS) $< $(DF)$@
 
 ############# CLEAN #############
 clean: clean-objects clean-static-lib clean-doc clean-header clean-pkgfile
@@ -138,11 +157,11 @@ clean-shared-objects:
 	@echo ------------------ Cleaning shared-object done
 
 clean-static-lib:
-	$(RM) $(DLIB_PATH)$(PATH_SEP)$(LIBNAME)
+	$(RM) $(DLIB_PATH)$(PATH_SEP)$(STATIC_LIBNAME)
 	@echo ------------------ Cleaning static-lib done
 
 clean-shared-lib:
-	$(RM)  $(DLIB_PATH)$(PATH_SEP)$(SONAME).$(VERSION)
+	$(RM)  $(DLIB_PATH)$(PATH_SEP)$(SHARED_LIBNAME).$(PROJECT_VERSION)
 	@echo ------------------ Cleaning shared-lib done
 
 clean-header:
@@ -156,6 +175,8 @@ clean-doc:
 
 clean-ddoc:
 	$(RM) $(DDOC_PATH)$(PATH_SEP)index.html
+	$(RM) $(DDOCUMENTATIONS)
+	$(RM) $(DDOC_PATH)$(PATH_SEP)$(PROJECT_NAME)
 	$(RM) $(DDOC_PATH)
 	@echo ------------------ Cleaning ddoc done
 
@@ -176,37 +197,38 @@ install-shared: install-shared-lib install-doc install-header install-pkgfile
 	@echo ------------------ Installing $^ done
 
 install-static-lib:
-	$(MKDIR) $(LIB_DIR)
-	$(CP) $(DLIB_PATH)$(PATH_SEP)$(LIBNAME) $(DESTDIR)$(LIB_DIR)
+	$(MKDIR) $(DESTDIR)$(LIB_DIR)
+	$(CP) $(DLIB_PATH)$(PATH_SEP)$(STATIC_LIBNAME) $(DESTDIR)$(LIB_DIR)
 	@echo ------------------ Installing static-lib done
 
 install-shared-lib:
-	$(MKDIR) $(LIB_DIR)
-	$(CP) $(DLIB_PATH)$(PATH_SEP)$(SONAME).$(VERSION) $(DESTDIR)$(LIB_DIR)
-	pushd $(DESTDIR)$(LIB_DIR); ln -s $(SONAME).$(VERSION)   $(SONAME); 	popd
+	$(MKDIR) $(DESTDIR)$(LIB_DIR)
+	$(CP) $(DLIB_PATH)$(PATH_SEP)$(SHARED_LIBNAME).$(PROJECT_VERSION) $(DESTDIR)$(LIB_DIR)
+	cd $(DESTDIR)$(LIB_DIR)$(PATH_SEP) && $(LN) $(SHARED_LIBNAME).$(PROJECT_VERSION) $(SHARED_LIBNAME).$(MAJOR_VERSION)
+	cd $(DESTDIR)$(LIB_DIR)$(PATH_SEP) && $(LN) $(SHARED_LIBNAME).$(MAJOR_VERSION) $(SHARED_LIBNAME)
 	@echo ------------------ Installing shared-lib done
 
 install-header:
-	$(MKDIR) $(INCLUDE_DIR)
-	$(CP) $(IMPORT_PATH)$(PATH_SEP)sqlite $(DESTDIR)$(INCLUDE_DIR)
+	$(MKDIR) $(DESTDIR)$(INCLUDE_DIR)
+	$(CP) $(IMPORT_PATH)$(PATH_SEP)$(PROJECT_NAME) $(DESTDIR)$(INCLUDE_DIR)
 	@echo ------------------ Installing header done
 
 install-doc:
-	$(MKDIR) $(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)dsqlite$(PATH_SEP)normal_doc$(PATH_SEP)
+	$(MKDIR) $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)dsqlite$(PATH_SEP)normal_doc$(PATH_SEP)
 	$(CP) $(DOC_PATH)$(PATH_SEP)* $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)dsqlite$(PATH_SEP)normal_doc$(PATH_SEP)
 	@echo ------------------ Installing doc done
 
 install-ddoc:
-	$(MKDIR) $(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)dsqlite$(PATH_SEP)cute_doc$(PATH_SEP)
+	$(MKDIR) $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)dsqlite$(PATH_SEP)cute_doc$(PATH_SEP)
 	$(CP) $(DDOC_PATH)$(PATH_SEP)* $(DESTDIR)$(DATA_DIR)$(PATH_SEP)doc$(PATH_SEP)dsqlite$(PATH_SEP)cute_doc$(PATH_SEP)
 	@echo ------------------ Installing ddoc done
 
 install-geany-tag:
-	$(MKDIR) $(DATA_DIR)$(PATH_SEP)geany$(PATH_SEP)tags$(PATH_SEP)
+	$(MKDIR) $(DESTDIR)$(DATA_DIR)$(PATH_SEP)geany$(PATH_SEP)tags$(PATH_SEP)
 	$(CP) $(PROJECT_NAME).d.tags $(DESTDIR)$(DATA_DIR)$(PATH_SEP)geany$(PATH_SEP)tags$(PATH_SEP)
 	@echo ------------------ Installing geany tag done
 
 install-pkgfile:
-	$(MKDIR) $(PKGCONFIG_DIR)
-	$(CP) $(PKG_CONFIG_FILE) $(DESTDIR)$(PKGCONFIG_DIR)
+	$(MKDIR) $(DESTDIR)$(PKGCONFIG_DIR)
+	$(CP) $(PKG_CONFIG_FILE) $(DESTDIR)$(PKGCONFIG_DIR)$(PATH_SEP)$(PROJECT_NAME).pc
 	@echo ------------------ Installing pkgfile done
