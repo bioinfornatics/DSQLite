@@ -7,11 +7,26 @@ ifdef SystemRoot
     SHELL           = cmd.exe
     Filter          = %/linux/%.d %/darwin/%.d %/freebsd/%.d %/solaris/%.d
     getSource       =$(shell dir $(ROOT_SOURCE_DIR) /s /b)
+else ifneq (,$(findstring /mingw/,$PATH))
+    OS              = "MinGW"
+    STATIC_LIB_EXT  = .lib
+    DYNAMIC_LIB_EXT = .dll
+    PATH_SEP        =\
+    message         = @(echo $1)
+    SHELL           = cmd.exe
+    Filter          = %/linux/%.d %/darwin/%.d %/freebsd/%.d %/solaris/%.d
+    getSource       =$(shell dir $(ROOT_SOURCE_DIR) /s /b)
 else
     SHELL           = sh
     PATH_SEP        =/
     getSource       =$(shell find $(ROOT_SOURCE_DIR) -name "*.d")
-    ifeq ($(shell uname), Linux)
+    ifneq (,$(findstring /cygdrive/,$PATH))
+        OS              = "Cygwin"
+        STATIC_LIB_EXT  = .a
+        DYNAMIC_LIB_EXT = .so
+        message         = @(echo \033[31m $1 \033[0;0m1)
+        Filter          = %/win32/%.d %/darwin/%.d %/freebsd/%.d %/solaris/%.d
+    else ifeq ($(shell uname), Linux)
         OS              = "Linux"
         STATIC_LIB_EXT  = .a
         DYNAMIC_LIB_EXT = .so
@@ -141,7 +156,11 @@ else ifeq ($(DC),dmd)
     PHOBOS      = phobos2
     DRUNTIME    = druntime
 else ifeq ($(DC),dmd2)
-    COMPILER=dmd
+    COMPILER    = dmd
+    VERSION     = -d-version
+    SONAME_FLAG = $(LINKERFLAG)-soname
+    PHOBOS      = phobos2
+    DRUNTIME    = druntime
 endif
 
 # Define relocation model for ldc or other
@@ -153,7 +172,7 @@ endif
 
 # Add -ldl flag for linux
 ifeq ($(OS),"Linux")
-    LDCFLAGS += $(LINKERFLAG) -ldl
+    LDCFLAGS += $(LINKERFLAG)-ldl
 endif
 
 # If model are not given take the same as current system
@@ -165,7 +184,7 @@ ifndef ARCH
             ARCH = x86_64
         endif
     else
-        ARCH = $(shell arch || uname -m)
+        ARCH = $(shell arch 2>/dev/null|| uname -m)
     endif
 endif
 ifndef MODEL
@@ -193,34 +212,34 @@ ifndef PREFIX
     ifeq ($(OS),"Windows")
         PREFIX = $(PROGRAMFILES)
     else ifeq ($(OS), "Linux")
-        PREFIX = /usr/local
+        PREFIX = /usr/local/
     else ifeq ($(OS), "Darwin")
-        PREFIX = /usr/local
+        PREFIX = /usr/local/
     endif
 endif
 
 ifndef BIN_DIR
     ifeq ($(OS), "Windows")
-        BIN_DIR = $(PROGRAMFILES)\$(PROJECT_NAME)\bin
+        BIN_DIR = $(PROGRAMFILES)\$(PROJECT_NAME)\bin\
     else ifeq ($(OS), "Linux")
-        BIN_DIR = $(PREFIX)/bin
+        BIN_DIR = $(PREFIX)/bin/
     else ifeq ($(OS), "Darwin")
-        BIN_DIR = $(PREFIX)/bin
+        BIN_DIR = $(PREFIX)/bin/
     endif
 endif
 ifndef LIB_DIR
     ifeq ($(OS), "Windows")
-        LIB_DIR = $(PREFIX)\$(PROJECT_NAME)\lib
+        LIB_DIR = $(PREFIX)\$(PROJECT_NAME)\lib\
     else ifeq ($(OS), "Linux")
-        LIB_DIR = $(PREFIX)/lib
+        LIB_DIR = $(PREFIX)/lib/
     else ifeq ($(OS), "Darwin")
-        LIB_DIR = $(PREFIX)/lib
+        LIB_DIR = $(PREFIX)/lib/
     endif
 endif
 
 ifndef INCLUDE_DIR
     ifeq ($(OS), "Windows")
-        INCLUDE_DIR = $(PROGRAMFILES)\$(PROJECT_NAME)\import
+        INCLUDE_DIR = $(PROGRAMFILES)\$(PROJECT_NAME)\import\
     else
         INCLUDE_DIR = $(PREFIX)/include/d/
     endif
@@ -228,17 +247,17 @@ endif
 
 ifndef DATA_DIR
     ifeq ($(OS), "Windows")
-        DATA_DIR = $(PROGRAMFILES)\$(PROJECT_NAME)\data
+        DATA_DIR = $(PROGRAMFILES)\$(PROJECT_NAME)\data\
     else
-        DATA_DIR = $(PREFIX)/share
+        DATA_DIR = $(PREFIX)/share/
     endif
 endif
 
 ifndef PKGCONFIG_DIR
     ifeq ($(OS), "Windows")
-        PKGCONFIG_DIR = $(PROGRAMFILES)\$(PROJECT_NAME)\data
+        PKGCONFIG_DIR = $(PROGRAMFILES)\$(PROJECT_NAME)\data\
     else
-        PKGCONFIG_DIR = $(DATA_DIR)/pkgconfig
+        PKGCONFIG_DIR = $(DATA_DIR)/pkgconfig/
     endif
 endif
 

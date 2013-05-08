@@ -7,7 +7,7 @@ export MAJOR_VERSION    = 1
 export MINOR_VERSION    = 0
 export PATCH_VERSION    = 0
 export PROJECT_VERSION  = $(MAJOR_VERSION).$(MINOR_VERSION).$(PATCH_VERSION)
-export LICENSE          = "GPLv3"
+export LICENSE          = GPLv3
 export ROOT_SOURCE_DIR  = sqlite
 DDOCFILES               =
 
@@ -36,7 +36,6 @@ endef
 ############# BUILD #############
 all: static-lib header doc pkgfile-static
 	@echo ------------------ Building $^ done
-
 all-shared: shared-lib header doc pkgfile-shared
 	@echo ------------------ Building $^ done
 
@@ -123,15 +122,15 @@ $(SHARED_LIBNAME): $(PICOBJECTS)
 
 # create object files
 $(BUILD_PATH)$(PATH_SEP)%.o : %.d
-	$(DC) $(DCFLAGS) $(DCFLAGS_IMPORT) -c $< $(OUTPUT)$@
+	$(DC) $(DCFLAGS) $(DCFLAGS_LINK) $(DCFLAGS_IMPORT) -c $< $(OUTPUT)$@
 
 # create shared object files
 $(BUILD_PATH)$(PATH_SEP)%.pic.o : %.d
-	$(DC) $(DCFLAGS) $(FPIC) $(DCFLAGS_IMPORT) -c $< $(OUTPUT)$@
+	$(DC) $(DCFLAGS) $(DCFLAGS_LINK) $(FPIC) $(DCFLAGS_IMPORT) -c $< $(OUTPUT)$@
 
 # Generate Header files
 $(IMPORT_PATH)$(PATH_SEP)%.di : %.d
-	$(DC) $(DCFLAGS) $(DCFLAGS_IMPORT) -c $(NO_OBJ) $< $(HF)$@
+	$(DC) $(DCFLAGS) $(DCFLAGS_LINK) $(DCFLAGS_IMPORT) -c $(NO_OBJ) $< $(HF)$@
 
 # Generate Documentation
 $(DOC_PATH)$(PATH_SEP)%.html : %.d
