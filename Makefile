@@ -33,6 +33,8 @@ define make-lib
 	$(RANLIB) $(DLIB_PATH)$(PATH_SEP)$@
 endef
 
+$(MKDIR) $(DLIB_PATH) $(IMPORT_PATH) $(DOC_PATH) $(DDOC_PATH) $(BUILD_PATH)
+
 ############# BUILD #############
 all: static-lib header doc pkgfile-static
 	@echo ------------------ Building $^ done
@@ -209,7 +211,7 @@ install-shared-lib:
 
 install-header:
 	$(MKDIR) $(DESTDIR)$(INCLUDE_DIR)
-	$(CP) $(IMPORT_PATH)$(PATH_SEP)$(PROJECT_NAME) $(DESTDIR)$(INCLUDE_DIR)
+	$(CP) $(IMPORT_PATH)$(PATH_SEP)sqlite $(DESTDIR)$(INCLUDE_DIR)
 	@echo ------------------ Installing header done
 
 install-doc:
