@@ -33,8 +33,6 @@ define make-lib
 	$(RANLIB) $(DLIB_PATH)$(PATH_SEP)$@
 endef
 
-$(MKDIR) $(DLIB_PATH) $(IMPORT_PATH) $(DOC_PATH) $(DDOC_PATH) $(BUILD_PATH)
-
 ############# BUILD #############
 all: static-lib header doc pkgfile-static
 	@echo ------------------ Building $^ done
@@ -53,9 +51,11 @@ shared-lib: $(SHARED_LIBNAME)
 header: $(HEADERS)
 
 doc: $(DOCUMENTATIONS)
+	$(MKDIR) $(DOC_PATH)
 	@echo ------------------ Building Doc done
 
 ddoc: settings.ddoc $(DDOCUMENTATIONS)
+	$(MKDIR) $(DOC_PATH)
 	$(DC) $(DDOC_FLAGS) index.d $(DF)$(DDOC_PATH)$(PATH_SEP)index.html
 	@echo ------------------ Building DDoc done
 
