@@ -29,21 +29,22 @@ final class Table{
         Database    _database;
         string      _name;
 
-        string _bindValues ( ref Variant[] values ){
-            string bindValues   = "?, ".replicate( values.length );
+        string _bindValues ( in size_t length ){
+            string bindValues   = "?, ".replicate( length );
             return bindValues[ 0 .. $ - 2 ];
         }
 
     public:
-        this( ref Database database, string name ){
+        this( ref Database database, in string name ){
             _database   = database;
             _name       = name.idup;
         }
 
         // INSERT
-        void insert(T)( T[] values, string[] columns = null ){
+        @system
+        void insert(T)( const ref T[] values, const ref string[] columns = null ){
             string query        = "";
-            string bindValues   = _bindValues( values );
+            string bindValues   = _bindValues( values.length );
             if( columns is null)
                 query = "INSERT INTO `%s` VALUES ( %s )".format( _name, bindValues );
             else
@@ -51,12 +52,14 @@ final class Table{
             _database.command( query, values );
         }
 
-        void insert(T)( T[][] values, string[] columns = null ){
+        @system
+        void insert(T)( const ref T[][] values, const ref string[] columns = null ){
             foreach( value; values )
                 insert( value, columns );
         }
 
-        void insert(T)( T[][] values, string[][] columns = null ){
+        @system
+        void insert(T)( const ref T[][] values, const ref string[][] columns = null ){
             if( values.length != columns.length )
                 throw new TableException( " Array values and array columns need to be same length: %s != %s".format( values.length, columns.length ), __FILE__, __LINE__ );
             foreach( index; 0 .. values.length )
@@ -64,9 +67,10 @@ final class Table{
         }
 
         // REPLACE
-        void replace(T)( T[] values, string[] columns = null ){
+        @system nothrow
+        void replace(T)( const ref T[] values, const ref string[] columns = null ){
             string query        = "";
-            string bindValues   = _bindValues( values );
+            string bindValues   = _bindValues( values.length );
             if( columns is null )
                 query = "REPLACE INTO `%s` VALUES ( %s )".format( _name, bindValues );
             else
@@ -74,12 +78,14 @@ final class Table{
             _database.command( query, values );
         }
 
-        void replace(T)( T[][] values, string[] columns = null ){
-            foreach( value; values )
+        @system nothrow
+        void replace(T)( const ref T[][] values, const ref string[] columns = null ){
+            foreach( const ref value; values )
                 replace( value, columns);
         }
 
-        void replace(T)( T[][] values, string[][] columns = null ){
+        @system nothrow
+        void replace(T)( const ref T[][] values, const ref string[][] columns = null ){
             if( values.length != columns.length )
                 throw new TableException( " Array values and array columns need to be same length: %s != %s".format( values.length, columns.length ), __FILE__, __LINE__ );
             foreach( index; 0 .. values.length )
@@ -87,17 +93,20 @@ final class Table{
         }
 
         // UPDATE
-        void update(T)( T[] values, string[] columns, string condition ){
+        @system nothrow
+        void update(T)( const ref T[] values, const ref string[] columns, in string condition ){
             string query = "UPDATE `%s` ( %s ) SET ( %s ) WHERE %s".format( _name, columns.join( ", "), condition );
             _database.command( query, values );
         }
 
-        void update(T)( T[][] values, string[] columns, string condition ){
+        @system nothrow
+        void update(T)( const ref T[][] values, const ref string[] columns, in string condition ){
             foreach( value; values )
                 update( value, columns, condition );
         }
 
-        void update(T)( T[][] values, string[][] columns, string[] conditions ){
+        @system nothrow
+        void update(T)( const ref T[][] values, const ref string[][] columns, in string[] conditions ){
             if( columns.length != conditions.length )
                 throw new TableException( " Array columns and array condition need to be same length: %s != %s".format( columns.length, conditions.length ), __FILE__, __LINE__ );
             foreach( index; 0 .. columns.length )
@@ -105,7 +114,8 @@ final class Table{
         }
 
         // SELECT
-        Row[] select( string[] column, string statement = null){
+        @system
+        Row[] select( ref string[] column, in string statement = null){
             string sql = "SELECT %s FROM `%s`".format( column.join(", "), _name );
             if( statement !is null )
                 sql ~= " WHERE " ~ statement;
@@ -113,7 +123,8 @@ final class Table{
             return _database.command( sql );
         }
 
-        Row[] select( string[] column, string statement, Variant[] values... ){
+        @system
+        Row[] select( ref string[] column, in string statement, Variant[] values... ){
             string sql = "SELECT %s FROM `%s` WHERE %s".format( column.join(", "), _name, statement);
             debug writefln( "sql: %s", sql);
             return _database.command( sql, values );

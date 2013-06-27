@@ -44,12 +44,14 @@ struct Statement{
          * SQLITE_BLOB     = 4
          * SQLITE_NULL     = 5
          */
-        size_t _columnType( int column ){
+        @system
+        size_t _columnType( in int column ){
             if( ! _isPrepared )
                 throw new StatementException( "Error: you can not perform this method if statement is not already prepared.", __FILE__, __LINE__ );
             return sqlite3_column_type( _statement, column );
         }
 
+        @system
         void _bind( Variant[] values... ){
             foreach( int index, value; values ){
                 int position = index + 1;
@@ -69,15 +71,18 @@ struct Statement{
     public:
         bool autoExecute;
 
+        @safe
         this( Database db ){
             _database   = db;
             autoExecute = true;
         }
 
+        @system
         ~this(){
             finalyze;
         }
 
+        @system
         Row[] prepare( string query ){
             Row[] result    = null;
             _isPrepared     = true;
@@ -96,6 +101,7 @@ struct Statement{
             return result;
         }
 
+        @system
         void prepare( string[] querys ){
             Row result          = null;
             bool tmpAutoExecute = autoExecute;          // If user have set this var store it for restore the user value at the end
@@ -109,6 +115,7 @@ struct Statement{
                 autoExecute = true;                     // restore the user value
         }
 
+        @system
         Row[] prepare( string query, Variant[] values... ){
             Row[] result    = null;
             _isPrepared     = true;
@@ -128,6 +135,7 @@ struct Statement{
             return result;
         }
 
+        @system
         void prepare( string[] querys, Variant[][] values... ){
             if( querys.length != values.length )
                 throw new StatementException( "Error: querys.lenght != values.length: %s != %s".format( querys.length, values.length ), __FILE__, __LINE__ );
@@ -142,7 +150,8 @@ struct Statement{
                 autoExecute = true;                     // restore the user value
         }
 
-        @property Row[] execute(){
+        @property @system
+        Row[] execute(){
             void add(T)( ref T[] array, ref T item, ref size_t counter ){
                 if( counter >= array.length ){
                     array.length = array.length + 10;
@@ -185,15 +194,18 @@ struct Statement{
             return result;
         }
 
-        @property size_t length(){
+        @property @system
+        size_t length(){
             return _columnCount;
         }
 
-        @property void finalyze(){
+        @property @system
+        void finalyze(){
             sqlite3_finalize( _statement );
         }
 
-        string databaseName(int column){
+        @system
+        string databaseName( in int column ){
             if( ! _isPrepared )
                 throw new StatementException( "Error: you can not perform this method if statement is not already prepared.", __FILE__, __LINE__);
             if( column >= _columnCount )
@@ -201,7 +213,8 @@ struct Statement{
             return to!string(sqlite3_column_database_name( _statement, column ) );
         }
 
-        string tableName(int column){
+        @system
+        string tableName( in int column ){
             if( ! _isPrepared )
                 throw new StatementException( "Error: you can not perform this method if statement is not already prepared.", __FILE__, __LINE__);
             if( column >= _columnCount )
@@ -209,7 +222,8 @@ struct Statement{
             return to!string( sqlite3_column_table_name( _statement, column ) );
         }
 
-        string originName(int column){
+        @system
+        string originName( in int column ){
             if( ! _isPrepared )
                 throw new StatementException( "Error: you can not perform this method if statement is not already prepared.", __FILE__, __LINE__);
             if( column >= _columnCount )
@@ -217,7 +231,8 @@ struct Statement{
             return to!string( sqlite3_column_origin_name( _statement, column ) );
         }
 
-        string columnName(int column){
+        @system
+        string columnName( in int column ){
             if( ! _isPrepared )
                 throw new StatementException( "Error: you can not perform this method if statement is not already prepared.", __FILE__, __LINE__);
             if( column >= _columnCount )
@@ -225,7 +240,8 @@ struct Statement{
             return to!string( sqlite3_column_name( _statement, column ) );
         }
 
-        Variant columnValue( int column ){
+        @system
+        Variant columnValue( in int column ){
             size_t type = _columnType( column );
             Variant value;
             switch( type ){
@@ -251,6 +267,7 @@ struct Statement{
          * Enable foreach given index from 0 to _columnCount
          * Return result of dg 0 == SUCCESS
          */
+        @system
         int opApply( int delegate(ref int) dg ){
             if( ! _isPrepared )
                 throw new StatementException( "Error: you can not perform this method if statement is not already prepared.", __FILE__, __LINE__ );
@@ -267,6 +284,7 @@ struct Row{
         Column[] _columns;
 
     public:
+        @safe
         this( Column[] columns ){
             _columns = columns.dup;
         }
@@ -275,6 +293,7 @@ struct Row{
          * Enable foreach given index from 0 to _columns.length
          * Return result of dg 0 == SUCCESS
          */
+        @system
         int opApply( int delegate(ref Column) dg ){
             int result = 0;
             foreach( col; _columns )
@@ -286,6 +305,7 @@ struct Row{
          * Enable foreach given index from 0 to _columns.length
          * Return result of dg 0 == SUCCESS
          */
+        @system
         int opApply( int delegate(ref size_t index, ref Column) dg ){
             int result = 0;
             foreach( index, col; _columns )
@@ -293,6 +313,7 @@ struct Row{
             return result;
         }
 
+        @property @system
         string toString(){
             string line = "";
             foreach( column; _columns)
@@ -302,11 +323,13 @@ struct Row{
             return line;
         }
 
-        Column opIndex( size_t index ){
+        @safe nothrow
+        Column opIndex( in size_t index ){
             return _columns[index];
         }
 
-        Column opIndex( string name ){
+        @system 
+        Column opIndex( in string name ){
             bool    isSearching = true;
             size_t  index       = 0;
             Column  result      = null;
@@ -330,41 +353,49 @@ struct Column{
         Variant _value;
         string  _name;
     public:
-        this( string  name ){
+        @safe
+        this( in string  name ){
             _name   = name;
         }
 
-        this( Variant value, string  name ){
+        @safe
+        this( Variant value, in string  name ){
             _value = value;
             _name  = name;
         }
 
-        @property string name(){
+        @property @safe nothrow
+        string name() const{
             return _name;
         }
 
-        @property void value( T )( T item ){
+        @property @safe
+        void value( T )( T item ){
             _value = item;
         }
 
-        @property Variant getValue(){
+        @property @safe nothrow
+        Variant getValue(){
             return _value;
         }
 
+        @safe nothrow
         Variant opCall(){
             return _value;
         }
 
-        string toString(){
+        @property @system
+        string toString() const{
             return  "%s: %s".format( name, _value );
         }
 }
 
-@property string header(Row[] rows){
+@property @system
+string header( ref Row[] rows ){
     string result;
     if( rows.length > 0 ){
         Row row = rows[0];
-        foreach( column; row )
+        foreach( ref column; row )
             result ~= column.name ~ "\t" ;
         result = result[0 .. $ - 1];
     }
