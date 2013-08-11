@@ -231,5 +231,5 @@ install-geany-tag:
 
 install-pkgfile:
 	$(MKDIR) $(DESTDIR)$(PKGCONFIG_DIR)
-	$(CP) $(PKG_CONFIG_FILE) $(DESTDIR)$(PKGCONFIG_DIR)$(PATH_SEP)$(PROJECT_NAME).pc
+	$(CP) $(PKG_CONFIG_FILE) $(DESTDIR)$(PKGCONFIG_DIR)$(PATH_SEP)dsqlite.pc
 	@echo ------------------ Installing pkgfile done
