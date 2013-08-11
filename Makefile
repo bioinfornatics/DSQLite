@@ -4,7 +4,7 @@ export DESCRIPTION      = "D library for use sqlite "
 export REPO_SRC_DIR     =
 export LOGO_SRC         =
 export MAJOR_VERSION    = 1
-export MINOR_VERSION    = 0
+export MINOR_VERSION    = 1
 export PATCH_VERSION    = 0
 export PROJECT_VERSION  = $(MAJOR_VERSION).$(MINOR_VERSION).$(PATCH_VERSION)
 export LICENSE          = GPLv3
@@ -231,5 +231,5 @@ install-geany-tag:
 
 install-pkgfile:
 	$(MKDIR) $(DESTDIR)$(PKGCONFIG_DIR)
-	$(CP) $(PKG_CONFIG_FILE) $(DESTDIR)$(PKGCONFIG_DIR)$(PATH_SEP)$(PROJECT_NAME).pc
+	$(CP) $(PKG_CONFIG_FILE) $(DESTDIR)$(PKGCONFIG_DIR)$(PATH_SEP)dsqlite.pc
 	@echo ------------------ Installing pkgfile done
