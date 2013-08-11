@@ -41,8 +41,7 @@ debug private import std.stdio;
  *     executeScript( "myDB.sqlite3.db", std.conv.to!(string) line );
  *
  */
-@system
-Database executeScript( in string databasePath, in string[] lines ...){
+Database executeScript( string databasePath, string[] lines ...){
 
     void add( ref string[] statements, ref string query, ref size_t stmtCounter){
         stmtCounter++;
@@ -57,14 +56,14 @@ Database executeScript( in string databasePath, in string[] lines ...){
     size_t      stmtCounter = 0;
     sizediff_t  index       = 0;
     string      tmpLine     = "";
-    foreach( const ref line; lines ){
+    foreach( line; lines ){
         index = line.indexOf(";");
         if( index != -1 ){
-            tmpLine ~= line[ 0 .. index ].idup;
+            tmpLine ~= line[ 0 .. index ];
             add( statements, tmpLine, stmtCounter );
         }
         else{
-            tmpLine ~= line.idup;
+            tmpLine ~= line;
         }
     }
     statements.length = stmtCounter;
@@ -74,9 +73,9 @@ Database executeScript( in string databasePath, in string[] lines ...){
 
 /**
  * Database
- * It is an object for manipulate sqlite Database easily
+ * It is an object for manipulate slaite Database easily
  */
-final class Database{
+class Database{
     private:
         string          _databasePath;
         sqlite3*        _connection;
@@ -90,8 +89,7 @@ final class Database{
          *    databasePath = a path to an existing or not slite database
          *    inMemory     = default false if you want load full databse in memory
          */
-        @system
-        this( in string databasePath, in bool inMemory = false ){
+        this( string databasePath, bool inMemory = false ){
             _databasePath= databasePath.idup;
             debug writeln( "opening database" );
             int status   = sqlite3_open( _databasePath.toStringz, &_connection );
@@ -110,7 +108,6 @@ final class Database{
                 // TODO create table object
         }
 
-        @system
         ~this(){
             sqlite3_exec( _connection, "END", null, null, null );
             sqlite3_close( _connection );
@@ -128,11 +125,10 @@ final class Database{
          *    Database db = new Database( "myDB.sqlite3.db" );
          *    db.createTable( "people", "name TEXT", "id INTEGER PRIMARY KEY NOT NULL" );
          */
-        @system
-        void createTable( in string tableName, in string[] columns ... ){
+        void createTable( string tableName, string[] columns ... ){
             string query = "CREATE TABLE " ~ tableName ~ " ( ";
-            foreach( index,const ref column; columns ){
-                query ~= column.idup;
+            foreach( index, column; columns ){
+                query ~= column;
                 if( index == columns.length -1 )
                     query ~= " )";
                 else
@@ -153,8 +149,7 @@ final class Database{
          *    Database db = new Database( "myDB.sqlite3.db" );
          *    db.createTable( "CREATE TABLE people ( name TEXT, id INTEGER PRIMARY KEY NOT NULL);" );
          */
-        @system
-        void createTable( in string query ){
+        void createTable( string query ){
             debug writefln( "sql: %s", query );
             command( query );
             updateTablesList;
@@ -166,8 +161,7 @@ final class Database{
          * Params:
          *     tableName = Name to table where will be dropped
          */
-        @system
-        void dropTable( in string tableName ){
+        void dropTable( string tableName ){
             string query = "DROP TABLE " ~ tableName;
             command( query );
             if(  tableName in _tables)
@@ -178,8 +172,7 @@ final class Database{
          * connection
          * In normal use you do not need use it
          */
-        @property @system
-        sqlite3* connection(){
+        @property sqlite3* connection(){
             return _connection;
         }
 
@@ -189,8 +182,7 @@ final class Database{
          * Returns:
          *     all tables in current database
          */
-        @property @system
-        Row[] tables(){
+        @property Row[] tables(){
             return command( "SELECT name FROM sqlite_master WHERE type='table'" );
         }
 
@@ -198,10 +190,9 @@ final class Database{
          * updateTablesList
          * update tables used in current table. This it is usefull when you create a table with command and not with createTable method
          */
-        @property @system
-        void updateTablesList(){
+        @property void updateTablesList(){
             Row[] result = tables;
-            foreach( ref table; result ){
+            foreach( table; result ){
                 Column column   = table["name"];
                 string tableName= to!(string)( column.getValue );
                 debug writefln( "list table, %s: %s", column.name, tableName );
@@ -215,8 +206,7 @@ final class Database{
          * Returns:
          *     give table structure <FieldName> <Type>
          */
-        @system
-        Row[] table_info( in string tableName ){
+        Row[] table_info( string tableName ){
             return _statement.prepare( "PRAGMA table_info( " ~ tableName ~ " )" );
         }
 
@@ -227,7 +217,6 @@ final class Database{
          * Examples:
          *     b.command( "CREATE TABLE people ( name TEXT, id INTEGER PRIMARY KEY NOT NULL);" );
          */
-        @system
         Row[] command( string query ){
            return _statement.prepare( query );
         }
@@ -239,7 +228,6 @@ final class Database{
          * Examples:
          *     b.command( ["CREATE TABLE people ( name TEXT, id INTEGER PRIMARY KEY NOT NULL);", "CREATE TABLE car ( constructor TEXT, model TEXT, id INTEGER PRIMARY KEY NOT NULL)"] );
          */
-        @system
         void command( string[] querys ){
             _statement.prepare( querys );
         }
@@ -252,7 +240,6 @@ final class Database{
          *     b.command( "SELECT FROM people ( name ) WHERE id=?;", cast(Variant)1 );
          *     b.command( "SELECT FROM car ( name ) WHERE constructor=? and model=?;", cast(Variant) "citroën", cast(Variant) "C5");
          */
-        @system
         Row[] command( string query, Variant[] values... ){
             return _statement.prepare( query, values );
         }
@@ -264,7 +251,6 @@ final class Database{
          * Examples:
          *     b.command( ["SELECT FROM people ( name ) WHERE id=?;", "SELECT FROM car ( name ) WHERE constructor=? and mode=?;"], [ [cast(Variant)1],  [cast(Variant)"citroën", cast(Variant)"C5" ] ] );
          */
-        @system
         void command( string[] querys, Variant[][] values... ){
             _statement.prepare( querys, values );
         }
@@ -275,10 +261,9 @@ final class Database{
          * foreach(Table t; db)
          *     t.select( ["name"], "id=?", cast(Variant) 5);
          */
-        @system
         int opApply( int delegate(ref Table) dg ){
             int result = 0;
-            foreach( name, ref table; _tables )
+            foreach( name, table; _tables )
                 result = dg( table );
             return result;
         }
@@ -289,8 +274,7 @@ final class Database{
          * Example:
          *     Table people = db["people"];
          */
-        @system
-        Table opIndex( in string name ){
+        Table opIndex( string name){
             if( name !in _tables )
                 throw new RangeError("Table: %s does not exist!".format( name ) );
             return _tables[name];
