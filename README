@@ -50,5 +50,5 @@ If you build as shared lib remember to run ldconfig:
 EXAMPLES
 --------
 for build and test example you need link to your sqlite library. I assume DSQLite lib is in prefix /usr/local/ and sqlite lib in /usr/lib64:
-$ ldc2 $(pkg-config --cflags --libs DSQLite) test_sql.d
+$ ldc2 $(pkg-config --cflags --libs dsqlite) test_sql.d
 $ ./test_sql
